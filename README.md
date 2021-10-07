@@ -8,7 +8,7 @@ All subprojects that are independent of the gesture sensor have been removed.
 
 Branch Policy
 
-Master Branch: Contains ONLY working and tested code and completed tasks
+Main Branch: Contains ONLY working and tested code and completed tasks
 
 Development Branch: Root to all pending branches, only working code here!
 
