@@ -12,4 +12,4 @@ Master Branch: Contains ONLY working and tested code and completed tasks
 
 Development Branch: Root to all pending branches, only working code here!
 
-Issue Branches: Namin convention numberOfIssue
+Issue Branches: Naming convention numberOfIssue
