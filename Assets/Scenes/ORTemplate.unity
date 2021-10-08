@@ -198,10 +198,45 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: -6943646146615302097, guid: 63a5959ea2e4d544591d00f1970fb8b1,
+        type: 3}
+      propertyPath: m_Name
+      value: RolleVorneLinks
+      objectReference: {fileID: 0}
     - target: {fileID: -5122415831359805146, guid: 63a5959ea2e4d544591d00f1970fb8b1,
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5122415831359805146, guid: 63a5959ea2e4d544591d00f1970fb8b1,
+        type: 3}
+      propertyPath: m_Name
+      value: MRTLiege
+      objectReference: {fileID: 0}
+    - target: {fileID: -4590745236738931141, guid: 63a5959ea2e4d544591d00f1970fb8b1,
+        type: 3}
+      propertyPath: m_Name
+      value: MRTLiegeSockel
+      objectReference: {fileID: 0}
+    - target: {fileID: -2375808045580513159, guid: 63a5959ea2e4d544591d00f1970fb8b1,
+        type: 3}
+      propertyPath: m_Name
+      value: MRTLiegeGesamt
+      objectReference: {fileID: 0}
+    - target: {fileID: -2370066607175053752, guid: 63a5959ea2e4d544591d00f1970fb8b1,
+        type: 3}
+      propertyPath: m_Name
+      value: RolleHintenLinks
+      objectReference: {fileID: 0}
+    - target: {fileID: -462695232904441278, guid: 63a5959ea2e4d544591d00f1970fb8b1,
+        type: 3}
+      propertyPath: m_Name
+      value: MRTLiege
+      objectReference: {fileID: 0}
+    - target: {fileID: 255495832218516817, guid: 63a5959ea2e4d544591d00f1970fb8b1,
+        type: 3}
+      propertyPath: m_Name
+      value: RolleVorneRechts
       objectReference: {fileID: 0}
     - target: {fileID: 750518770971805812, guid: 63a5959ea2e4d544591d00f1970fb8b1,
         type: 3}
@@ -211,7 +246,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 63a5959ea2e4d544591d00f1970fb8b1,
         type: 3}
       propertyPath: m_Name
-      value: patientBed
+      value: PatientenLiege
       objectReference: {fileID: 0}
     - target: {fileID: 1030729930430076792, guid: 63a5959ea2e4d544591d00f1970fb8b1,
         type: 3}
@@ -219,10 +254,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4245476918117115717, guid: 08c2b99380ba7124ab5ee520d94ce2e5,
         type: 3}
+    - target: {fileID: 5051192136447707564, guid: 63a5959ea2e4d544591d00f1970fb8b1,
+        type: 3}
+      propertyPath: m_Name
+      value: RolleHintenRechts
+      objectReference: {fileID: 0}
+    - target: {fileID: 5864226276316360123, guid: 63a5959ea2e4d544591d00f1970fb8b1,
+        type: 3}
+      propertyPath: m_Name
+      value: MRTLiegeSockel
+      objectReference: {fileID: 0}
     - target: {fileID: 9130482800669883429, guid: 63a5959ea2e4d544591d00f1970fb8b1,
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9130482800669883429, guid: 63a5959ea2e4d544591d00f1970fb8b1,
+        type: 3}
+      propertyPath: m_Name
+      value: MRTLiegeAuflage
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63a5959ea2e4d544591d00f1970fb8b1, type: 3}
@@ -236,7 +286,7 @@ GameObject:
   m_Component:
   - component: {fileID: 477869178}
   m_Layer: 0
-  m_Name: Environment
+  m_Name: Umgebung
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -356,6 +406,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1553436352}
     m_Modifications:
+    - target: {fileID: -8768669346659955915, guid: 1f1eb95d14c1121499f9831a87fe87ad,
+        type: 3}
+      propertyPath: m_Name
+      value: Schraube7
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1f1eb95d14c1121499f9831a87fe87ad,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -411,10 +466,100 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8585232588801961416, guid: 1f1eb95d14c1121499f9831a87fe87ad,
+        type: 3}
+      propertyPath: m_Name
+      value: Schraube13
+      objectReference: {fileID: 0}
+    - target: {fileID: -8380157826906577798, guid: 1f1eb95d14c1121499f9831a87fe87ad,
+        type: 3}
+      propertyPath: m_Name
+      value: HalterungMitte
+      objectReference: {fileID: 0}
+    - target: {fileID: -7890861571838243594, guid: 1f1eb95d14c1121499f9831a87fe87ad,
+        type: 3}
+      propertyPath: m_Name
+      value: Schraube8
+      objectReference: {fileID: 0}
+    - target: {fileID: -7640558969779515294, guid: 1f1eb95d14c1121499f9831a87fe87ad,
+        type: 3}
+      propertyPath: m_Name
+      value: HalterungOben
+      objectReference: {fileID: 0}
+    - target: {fileID: -6830314582089797461, guid: 1f1eb95d14c1121499f9831a87fe87ad,
+        type: 3}
+      propertyPath: m_Name
+      value: Schraube6
+      objectReference: {fileID: 0}
+    - target: {fileID: -6591558608563082660, guid: 1f1eb95d14c1121499f9831a87fe87ad,
+        type: 3}
+      propertyPath: m_Name
+      value: Schraube5
+      objectReference: {fileID: 0}
+    - target: {fileID: -5031494978939573905, guid: 1f1eb95d14c1121499f9831a87fe87ad,
+        type: 3}
+      propertyPath: m_Name
+      value: Schraube14
+      objectReference: {fileID: 0}
+    - target: {fileID: -4253225735085039100, guid: 1f1eb95d14c1121499f9831a87fe87ad,
+        type: 3}
+      propertyPath: m_Name
+      value: Schraube10
+      objectReference: {fileID: 0}
+    - target: {fileID: -3276954474373848689, guid: 1f1eb95d14c1121499f9831a87fe87ad,
+        type: 3}
+      propertyPath: m_Name
+      value: Schraube12
+      objectReference: {fileID: 0}
+    - target: {fileID: -2911143563166697178, guid: 1f1eb95d14c1121499f9831a87fe87ad,
+        type: 3}
+      propertyPath: m_Name
+      value: Schraube4
+      objectReference: {fileID: 0}
+    - target: {fileID: -2525042011459122441, guid: 1f1eb95d14c1121499f9831a87fe87ad,
+        type: 3}
+      propertyPath: m_Name
+      value: Schraube9
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1f1eb95d14c1121499f9831a87fe87ad,
         type: 3}
       propertyPath: m_Name
-      value: desktopMount
+      value: BildschirmHalterung
+      objectReference: {fileID: 0}
+    - target: {fileID: 1487234071760608363, guid: 1f1eb95d14c1121499f9831a87fe87ad,
+        type: 3}
+      propertyPath: m_Name
+      value: Schraube1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051143368708141092, guid: 1f1eb95d14c1121499f9831a87fe87ad,
+        type: 3}
+      propertyPath: m_Name
+      value: Schraube11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2800250516343163423, guid: 1f1eb95d14c1121499f9831a87fe87ad,
+        type: 3}
+      propertyPath: m_Name
+      value: Scharnier
+      objectReference: {fileID: 0}
+    - target: {fileID: 3849762623622064168, guid: 1f1eb95d14c1121499f9831a87fe87ad,
+        type: 3}
+      propertyPath: m_Name
+      value: SchwarnierOben
+      objectReference: {fileID: 0}
+    - target: {fileID: 4310904936739699857, guid: 1f1eb95d14c1121499f9831a87fe87ad,
+        type: 3}
+      propertyPath: m_Name
+      value: Schraube2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5052673971408719517, guid: 1f1eb95d14c1121499f9831a87fe87ad,
+        type: 3}
+      propertyPath: m_Name
+      value: Schraube3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6512510688612296998, guid: 1f1eb95d14c1121499f9831a87fe87ad,
+        type: 3}
+      propertyPath: m_Name
+      value: ScharnierMitte
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f1eb95d14c1121499f9831a87fe87ad, type: 3}
@@ -501,6 +646,80 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1083152492
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1553436352}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: b7b73d8db3db508468d1b7802cc093fb,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.538
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b7b73d8db3db508468d1b7802cc093fb,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.908
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b7b73d8db3db508468d1b7802cc093fb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.171
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b7b73d8db3db508468d1b7802cc093fb,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.00000008146034
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b7b73d8db3db508468d1b7802cc093fb,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b7b73d8db3db508468d1b7802cc093fb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b7b73d8db3db508468d1b7802cc093fb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b7b73d8db3db508468d1b7802cc093fb,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 43
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b7b73d8db3db508468d1b7802cc093fb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b7b73d8db3db508468d1b7802cc093fb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b7b73d8db3db508468d1b7802cc093fb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: b7b73d8db3db508468d1b7802cc093fb,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cd0bf19abe1798d4890520cb50f422da, type: 2}
+    - target: {fileID: 919132149155446097, guid: b7b73d8db3db508468d1b7802cc093fb,
+        type: 3}
+      propertyPath: m_Name
+      value: PatientenLiegeHolz
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b7b73d8db3db508468d1b7802cc093fb, type: 3}
 --- !u!1001 &1248928835
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -516,7 +735,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 08c2b99380ba7124ab5ee520d94ce2e5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.038
+      value: 1.06
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 08c2b99380ba7124ab5ee520d94ce2e5,
         type: 3}
@@ -722,7 +941,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 08c2b99380ba7124ab5ee520d94ce2e5,
         type: 3}
       propertyPath: m_Name
-      value: skyraFront
+      value: SkyraFront
       objectReference: {fileID: 0}
     - target: {fileID: 951124793965140925, guid: 08c2b99380ba7124ab5ee520d94ce2e5,
         type: 3}
@@ -834,6 +1053,110 @@ PrefabInstance:
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08c2b99380ba7124ab5ee520d94ce2e5, type: 3}
+--- !u!1001 &1391196923
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1553436352}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 75c44d6c4a7deca4d957a37bfeb2eec5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.553
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 75c44d6c4a7deca4d957a37bfeb2eec5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.203
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 75c44d6c4a7deca4d957a37bfeb2eec5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.537
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 75c44d6c4a7deca4d957a37bfeb2eec5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 75c44d6c4a7deca4d957a37bfeb2eec5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 75c44d6c4a7deca4d957a37bfeb2eec5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 75c44d6c4a7deca4d957a37bfeb2eec5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 75c44d6c4a7deca4d957a37bfeb2eec5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 42
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 75c44d6c4a7deca4d957a37bfeb2eec5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 75c44d6c4a7deca4d957a37bfeb2eec5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 75c44d6c4a7deca4d957a37bfeb2eec5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6774548864943932379, guid: 75c44d6c4a7deca4d957a37bfeb2eec5,
+        type: 3}
+      propertyPath: m_Name
+      value: Decke
+      objectReference: {fileID: 0}
+    - target: {fileID: -4258411891960909470, guid: 75c44d6c4a7deca4d957a37bfeb2eec5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 75c44d6c4a7deca4d957a37bfeb2eec5,
+        type: 3}
+      propertyPath: m_Name
+      value: Patient
+      objectReference: {fileID: 0}
+    - target: {fileID: 1909470851192561243, guid: 75c44d6c4a7deca4d957a37bfeb2eec5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 05aa572f20541c64db0d3e7de71f1ae4, type: 2}
+    - target: {fileID: 5088413394388877857, guid: 75c44d6c4a7deca4d957a37bfeb2eec5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2e4cd4c44c37aee4c9f3c1a763e9c37d, type: 2}
+    - target: {fileID: 6861167116508658889, guid: 75c44d6c4a7deca4d957a37bfeb2eec5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7b7d1f4b5a5f503428b0c221e7ea8be6, type: 2}
+    - target: {fileID: 7036213049465896255, guid: 75c44d6c4a7deca4d957a37bfeb2eec5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7850014443187010117, guid: 75c44d6c4a7deca4d957a37bfeb2eec5,
+        type: 3}
+      propertyPath: m_Name
+      value: Bauch
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 75c44d6c4a7deca4d957a37bfeb2eec5, type: 3}
 --- !u!1001 &1553436351
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -841,6 +1164,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 477869178}
     m_Modifications:
+    - target: {fileID: -9111925402787151017, guid: f21bced6919e8e143ab5f1f2f13bb941,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -9111925402787151017, guid: f21bced6919e8e143ab5f1f2f13bb941,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: -8887933006793912902, guid: f21bced6919e8e143ab5f1f2f13bb941,
+        type: 3}
+      propertyPath: m_Name
+      value: "MRTLiegeF\xFChrungsschieneSeite"
+      objectReference: {fileID: 0}
+    - target: {fileID: -8772633572122039821, guid: f21bced6919e8e143ab5f1f2f13bb941,
+        type: 3}
+      propertyPath: m_Name
+      value: TuerZwischenwandGriffInnen
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f21bced6919e8e143ab5f1f2f13bb941,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -896,30 +1239,145 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8629493519484588530, guid: f21bced6919e8e143ab5f1f2f13bb941,
+        type: 3}
+      propertyPath: m_Name
+      value: StuhlRad4
+      objectReference: {fileID: 0}
+    - target: {fileID: -8553417584757162366, guid: f21bced6919e8e143ab5f1f2f13bb941,
+        type: 3}
+      propertyPath: m_Name
+      value: Stuhlbein
+      objectReference: {fileID: 0}
+    - target: {fileID: -8068073526183931155, guid: f21bced6919e8e143ab5f1f2f13bb941,
+        type: 3}
+      propertyPath: m_Name
+      value: TuerAussennwand
+      objectReference: {fileID: 0}
+    - target: {fileID: -6999410639102359082, guid: f21bced6919e8e143ab5f1f2f13bb941,
+        type: 3}
+      propertyPath: m_Name
+      value: TuerZwischenwandGriffAussen
+      objectReference: {fileID: 0}
+    - target: {fileID: -6744512016078398064, guid: f21bced6919e8e143ab5f1f2f13bb941,
+        type: 3}
+      propertyPath: m_Name
+      value: StuhlRad3
+      objectReference: {fileID: 0}
+    - target: {fileID: -6616331216325975370, guid: f21bced6919e8e143ab5f1f2f13bb941,
+        type: 3}
+      propertyPath: m_Name
+      value: StuhlRad2
+      objectReference: {fileID: 0}
+    - target: {fileID: -5883186195417713119, guid: f21bced6919e8e143ab5f1f2f13bb941,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5738082140517363721, guid: f21bced6919e8e143ab5f1f2f13bb941,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5596942298633272801, guid: f21bced6919e8e143ab5f1f2f13bb941,
+        type: 3}
+      propertyPath: m_Name
+      value: MRTLiegenStopp
+      objectReference: {fileID: 0}
     - target: {fileID: -5122415831359805146, guid: f21bced6919e8e143ab5f1f2f13bb941,
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5122415831359805146, guid: f21bced6919e8e143ab5f1f2f13bb941,
+        type: 3}
+      propertyPath: m_Name
+      value: MRTRoehreMitLiege
+      objectReference: {fileID: 0}
+    - target: {fileID: -5030834517285045514, guid: f21bced6919e8e143ab5f1f2f13bb941,
+        type: 3}
+      propertyPath: m_Name
+      value: MRTSensorkasten
+      objectReference: {fileID: 0}
+    - target: {fileID: -4099063005790876723, guid: f21bced6919e8e143ab5f1f2f13bb941,
+        type: 3}
+      propertyPath: m_Name
+      value: WandRechts
+      objectReference: {fileID: 0}
+    - target: {fileID: -4076440875776155373, guid: f21bced6919e8e143ab5f1f2f13bb941,
+        type: 3}
+      propertyPath: m_Name
+      value: TuerZwischenwandLeiste
       objectReference: {fileID: 0}
     - target: {fileID: -2375808045580513159, guid: f21bced6919e8e143ab5f1f2f13bb941,
         type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2151279639477752589, guid: f21bced6919e8e143ab5f1f2f13bb941,
+        type: 3}
+      propertyPath: m_Name
+      value: WandLinks
+      objectReference: {fileID: 0}
+    - target: {fileID: -2045257923548263128, guid: f21bced6919e8e143ab5f1f2f13bb941,
+        type: 3}
+      propertyPath: m_Name
+      value: FensterZwischenwand
+      objectReference: {fileID: 0}
+    - target: {fileID: -2001179974738455437, guid: f21bced6919e8e143ab5f1f2f13bb941,
+        type: 3}
+      propertyPath: m_Name
+      value: MRTRoehreKorpus
+      objectReference: {fileID: 0}
+    - target: {fileID: -1798986441444307268, guid: f21bced6919e8e143ab5f1f2f13bb941,
+        type: 3}
+      propertyPath: m_Name
+      value: FensterTuerZwischenwandGlass
+      objectReference: {fileID: 0}
     - target: {fileID: -462695232904441278, guid: f21bced6919e8e143ab5f1f2f13bb941,
         type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -462695232904441278, guid: f21bced6919e8e143ab5f1f2f13bb941,
+        type: 3}
+      propertyPath: m_Name
+      value: MRT
+      objectReference: {fileID: 0}
+    - target: {fileID: -208595431880416365, guid: f21bced6919e8e143ab5f1f2f13bb941,
+        type: 3}
+      propertyPath: m_Name
+      value: StuhlbeinKreuz
+      objectReference: {fileID: 0}
     - target: {fileID: -74585057468700508, guid: f21bced6919e8e143ab5f1f2f13bb941,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 534200571010698295, guid: f21bced6919e8e143ab5f1f2f13bb941,
+        type: 3}
+      propertyPath: m_Name
+      value: "StuhlSitzfl\xE4che"
+      objectReference: {fileID: 0}
+    - target: {fileID: 750518770971805812, guid: f21bced6919e8e143ab5f1f2f13bb941,
+        type: 3}
+      propertyPath: m_Name
+      value: MRTRoehre
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f21bced6919e8e143ab5f1f2f13bb941,
         type: 3}
       propertyPath: m_Name
-      value: room
+      value: Raum
+      objectReference: {fileID: 0}
+    - target: {fileID: 1119589336347250505, guid: f21bced6919e8e143ab5f1f2f13bb941,
+        type: 3}
+      propertyPath: m_Name
+      value: StuhlRad1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1483792379544068849, guid: f21bced6919e8e143ab5f1f2f13bb941,
+        type: 3}
+      propertyPath: m_Name
+      value: TuerAussenwandFenster
       objectReference: {fileID: 0}
     - target: {fileID: 1851555359231993428, guid: f21bced6919e8e143ab5f1f2f13bb941,
         type: 3}
@@ -927,30 +1385,130 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4245476918117115717, guid: 08c2b99380ba7124ab5ee520d94ce2e5,
         type: 3}
-    - target: {fileID: 5977994238886214127, guid: f21bced6919e8e143ab5f1f2f13bb941,
+    - target: {fileID: 2039288374196310162, guid: f21bced6919e8e143ab5f1f2f13bb941,
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392653097961418729, guid: f21bced6919e8e143ab5f1f2f13bb941,
+        type: 3}
+      propertyPath: m_Name
+      value: StuhlRad5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2489369913626487560, guid: f21bced6919e8e143ab5f1f2f13bb941,
+        type: 3}
+      propertyPath: m_Name
+      value: WandVorne
+      objectReference: {fileID: 0}
+    - target: {fileID: 3304035606288416083, guid: f21bced6919e8e143ab5f1f2f13bb941,
+        type: 3}
+      propertyPath: m_Name
+      value: SchrankGross
+      objectReference: {fileID: 0}
+    - target: {fileID: 3811997462943948784, guid: f21bced6919e8e143ab5f1f2f13bb941,
+        type: 3}
+      propertyPath: m_Name
+      value: TuerAussenwandGriffAussen
+      objectReference: {fileID: 0}
+    - target: {fileID: 3831458980809171004, guid: f21bced6919e8e143ab5f1f2f13bb941,
+        type: 3}
+      propertyPath: m_Name
+      value: SchrankKlein
+      objectReference: {fileID: 0}
+    - target: {fileID: 3837697930463473669, guid: f21bced6919e8e143ab5f1f2f13bb941,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4685949292961312103, guid: f21bced6919e8e143ab5f1f2f13bb941,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5472889171692210005, guid: f21bced6919e8e143ab5f1f2f13bb941,
+        type: 3}
+      propertyPath: m_Name
+      value: WandHinten
+      objectReference: {fileID: 0}
+    - target: {fileID: 5977994238886214127, guid: f21bced6919e8e143ab5f1f2f13bb941,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6185325192901336648, guid: f21bced6919e8e143ab5f1f2f13bb941,
         type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185325192901336648, guid: f21bced6919e8e143ab5f1f2f13bb941,
+        type: 3}
+      propertyPath: m_Name
+      value: FensterZwischenwand
+      objectReference: {fileID: 0}
+    - target: {fileID: 6478830560884367244, guid: f21bced6919e8e143ab5f1f2f13bb941,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6613118682137179144, guid: f21bced6919e8e143ab5f1f2f13bb941,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.171
       objectReference: {fileID: 0}
     - target: {fileID: 6710343102066097116, guid: f21bced6919e8e143ab5f1f2f13bb941,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6710343102066097116, guid: f21bced6919e8e143ab5f1f2f13bb941,
+        type: 3}
+      propertyPath: m_Name
+      value: FensterZwischenwandRahmen
+      objectReference: {fileID: 0}
+    - target: {fileID: 7006696826630519228, guid: f21bced6919e8e143ab5f1f2f13bb941,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7229923127457941647, guid: f21bced6919e8e143ab5f1f2f13bb941,
+        type: 3}
+      propertyPath: m_Name
+      value: RoehreKorpus
       objectReference: {fileID: 0}
     - target: {fileID: 7242415546211585326, guid: f21bced6919e8e143ab5f1f2f13bb941,
         type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8926340418267930607, guid: f21bced6919e8e143ab5f1f2f13bb941,
+    - target: {fileID: 7327131424674511610, guid: f21bced6919e8e143ab5f1f2f13bb941,
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7674915274576798352, guid: f21bced6919e8e143ab5f1f2f13bb941,
+        type: 3}
+      propertyPath: m_Name
+      value: TuerAussenwandGriffInnen
+      objectReference: {fileID: 0}
+    - target: {fileID: 7680811085548258257, guid: f21bced6919e8e143ab5f1f2f13bb941,
+        type: 3}
+      propertyPath: m_Name
+      value: MRTLiegeFuerungsschiene
+      objectReference: {fileID: 0}
+    - target: {fileID: 7931364606363467485, guid: f21bced6919e8e143ab5f1f2f13bb941,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7931364606363467485, guid: f21bced6919e8e143ab5f1f2f13bb941,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 8926340418267930607, guid: f21bced6919e8e143ab5f1f2f13bb941,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f21bced6919e8e143ab5f1f2f13bb941, type: 3}
@@ -1031,7 +1589,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 8e4fff47bd8652148aaf393cf8c77169,
         type: 3}
       propertyPath: m_Name
-      value: ceiling
+      value: Decke
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8e4fff47bd8652148aaf393cf8c77169,
         type: 3}
