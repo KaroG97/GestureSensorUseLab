@@ -33,10 +33,18 @@ public class LeapPosToCSV : MonoBehaviour
 
     public LeapHandPositionList currentList = new LeapHandPositionList();
 
+    public GameObject handpoint;
 
+    public static Transform handpointTransform;
+    
     // Start is called before the first frame update
     void Start()
     {
+        
+        handpointTransform = handpoint.GetComponent<Transform>();
+
+        print("point " +handpoint);
+         
         filename = Application.dataPath + filename;
         print("Pfade " + filename);
     }
@@ -44,13 +52,16 @@ public class LeapPosToCSV : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float tempX = Random.Range(1.0f, 100.0f);
+        /*float tempX = Random.Range(1.0f, 100.0f);
         float tempY = Random.Range(1.0f, 100.0f);
-        float tempZ = Random.Range(1.0f, 100.0f);
+        float tempZ = Random.Range(1.0f, 100.0f);*/
 
-        LeapHandPosition newPosition = new LeapHandPosition ("temp", tempX, tempY, tempZ);
-        print("new " + newPosition.x);
+        float tempX = handpointTransform.position.x; // Random.Range(1.0f, 100.0f);
+        float tempY = handpointTransform.position.y;
+        float tempZ = handpointTransform.position.z;
 
+        LeapHandPosition newPosition = new LeapHandPosition (handpoint.ToString(), tempX, tempY, tempZ);
+    
         System.Array.Resize(ref currentList.positions, currentList.positions.Length+1);
            
         currentList.positions[currentList.positions.Length-1] = newPosition;

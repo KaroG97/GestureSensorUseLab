@@ -474,6 +474,7 @@ GameObject:
   - component: {fileID: 211351676}
   - component: {fileID: 211351675}
   - component: {fileID: 211351674}
+  - component: {fileID: 211351677}
   m_Layer: 0
   m_Name: SensorArea
   m_TagString: Untagged
@@ -555,6 +556,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 211351672}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &211351677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211351672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e07225bb0ef39d643844552055231e62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentList:
+    positions: []
+  handpoint: {fileID: 246175469}
+--- !u!1 &246175469 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6972123562182815695, guid: e7e358565e530214c97adba8c82fedc6,
+    type: 3}
+  m_PrefabInstance: {fileID: 342346523}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &303761628
 GameObject:
   m_ObjectHideFlags: 0
