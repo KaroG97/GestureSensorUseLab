@@ -17,12 +17,14 @@ public class MollPosToCSV : MonoBehaviour
         public float x;
         public float y;
         public float z;
+        public string timestamp;
 
-        public MollHandPosition(string name, float tempX, float tempY, float tempZ){
+        public MollHandPosition(string name, float tempX, float tempY, float tempZ, string tmp){
             point = name; 
             x = tempX;
             y = tempY;
             z = tempZ;
+            timestamp = tmp;
         }
     }
 
@@ -57,15 +59,15 @@ public class MollPosToCSV : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*float tempX = Random.Range(1.0f, 100.0f);
-        float tempY = Random.Range(1.0f, 100.0f);
-        float tempZ = Random.Range(1.0f, 100.0f);*/
-
-        float tempX = handpointTransform.position.x; // Random.Range(1.0f, 100.0f);
+        
+        float tempX = handpointTransform.position.x; 
         float tempY = handpointTransform.position.y;
         float tempZ = handpointTransform.position.z;
 
-        MollHandPosition newPosition = new MollHandPosition (handpoint.ToString(), tempX, tempY, tempZ);
+        var culture = new CultureInfo("de-DE");
+        string timestamp = System.DateTime.Now.ToString(culture);
+
+        MollHandPosition newPosition = new MollHandPosition (handpoint.ToString(), tempX, tempY, tempZ, timestamp);
     
         System.Array.Resize(ref currentList.positions, currentList.positions.Length+1);
            
@@ -102,8 +104,6 @@ public class MollPosToCSV : MonoBehaviour
 
             tw = new StreamWriter(filename, true);
 
-            var culture = new CultureInfo("de-DE");
-
             for(int i = 0; i < currentList.positions.Length; i++)
             {
                 string insideArea = checkPointInsideArea(currentList.positions[i].x, currentList.positions[i].y, currentList.positions[i].z);
@@ -112,7 +112,7 @@ public class MollPosToCSV : MonoBehaviour
                              currentList.positions[i].y + ";"+
                              currentList.positions[i].z + ";"+
                              insideArea + ";"+
-                             System.DateTime.Now.ToString(culture));
+                             currentList.positions[i].timestamp);
             }
             tw.Close();
         }
