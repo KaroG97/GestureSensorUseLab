@@ -59,11 +59,8 @@ public class LeapPosToCSV : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*float tempX = Random.Range(1.0f, 100.0f);
-        float tempY = Random.Range(1.0f, 100.0f);
-        float tempZ = Random.Range(1.0f, 100.0f);*/
-
-        float tempX = handpointTransform.position.x; // Random.Range(1.0f, 100.0f);
+        
+        float tempX = handpointTransform.position.x; 
         float tempY = handpointTransform.position.y;
         float tempZ = handpointTransform.position.z;
 
