@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using System.Globalization;
+
 
 public class LeapPosToCSV : MonoBehaviour
 {
@@ -42,11 +44,7 @@ public class LeapPosToCSV : MonoBehaviour
     {
         
         handpointTransform = handpoint.GetComponent<Transform>();
-
-        print("point " +handpoint);
-         
         filename = Application.dataPath + filename;
-        print("Pfade " + filename);
     }
 
     // Update is called once per frame
@@ -78,16 +76,20 @@ public class LeapPosToCSV : MonoBehaviour
         if(currentList.positions.Length > 0)
         {
             TextWriter tw = new StreamWriter(filename, false);
-            tw.WriteLine("Point ; X ; Y ; Z");
+            tw.WriteLine("Point ; X ; Y ; Z; Timestamp");
             tw.Close();
 
             tw = new StreamWriter(filename, true);
+
+            var culture = new CultureInfo("de-DE");
+
             for(int i = 0; i < currentList.positions.Length; i++)
             {
                 tw.WriteLine(currentList.positions[i].point + ";" +
                              currentList.positions[i].x + ";"+
                              currentList.positions[i].y + ";"+
-                             currentList.positions[i].z);
+                             currentList.positions[i].z + ";"+
+                             System.DateTime.Now.ToString(culture));
             }
             tw.Close();
         }
