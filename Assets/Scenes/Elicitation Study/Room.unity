@@ -571,7 +571,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentList:
     positions: []
-  handpoint: {fileID: 246175469}
+  handpoint: {fileID: 1839226038}
+  sensorArea: {fileID: 211351672}
 --- !u!114 &211351678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -587,6 +588,7 @@ MonoBehaviour:
   currentList:
     positions: []
   handpoint: {fileID: 254880822}
+  sensorArea: {fileID: 211351672}
 --- !u!1 &234914902
 GameObject:
   m_ObjectHideFlags: 0
@@ -680,12 +682,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 234914902}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &246175469 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6972123562182815695, guid: e7e358565e530214c97adba8c82fedc6,
-    type: 3}
-  m_PrefabInstance: {fileID: 342346523}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &254880822
 GameObject:
   m_ObjectHideFlags: 0
@@ -3997,6 +3993,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1792511765}
   m_CullTransparentMesh: 0
+--- !u!1 &1839226038 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3625705208036204424, guid: e7e358565e530214c97adba8c82fedc6,
+    type: 3}
+  m_PrefabInstance: {fileID: 342346523}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1893659550
 GameObject:
   m_ObjectHideFlags: 0

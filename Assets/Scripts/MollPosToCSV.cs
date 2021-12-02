@@ -38,6 +38,12 @@ public class MollPosToCSV : MonoBehaviour
     public GameObject handpoint;
 
     public static Transform handpointTransform;
+
+    // Init Sensor Area to check collision
+
+    public GameObject sensorArea; 
+
+    public static Collider sensorAreaCollider; 
     
     // Start is called before the first frame update
     void Start()
@@ -45,6 +51,7 @@ public class MollPosToCSV : MonoBehaviour
         
         handpointTransform = handpoint.GetComponent<Transform>();
         filename = Application.dataPath + filename;
+        sensorAreaCollider = sensorArea.GetComponent<Collider>();
     }
 
     // Update is called once per frame
@@ -70,13 +77,27 @@ public class MollPosToCSV : MonoBehaviour
         }
     }
 
+    public string checkPointInsideArea(float x, float y, float z)
+    {
+        Vector3 pointToCheck = new Vector3(x, y, z);
+        
+        if(sensorAreaCollider.bounds.Contains(pointToCheck))
+        {
+            return "true";
+        }
+        else
+        {
+            return "false";
+        }
+    }
+
     public void writeCSV()
     {
         print("Write CSV");
         if(currentList.positions.Length > 0)
         {
             TextWriter tw = new StreamWriter(filename, false);
-            tw.WriteLine("Point ; X ; Y ; Z; Timestamp");
+            tw.WriteLine("Point ; X ; Y ; Z; Inside Area; Timestamp");
             tw.Close();
 
             tw = new StreamWriter(filename, true);
@@ -85,10 +106,12 @@ public class MollPosToCSV : MonoBehaviour
 
             for(int i = 0; i < currentList.positions.Length; i++)
             {
+                string insideArea = checkPointInsideArea(currentList.positions[i].x, currentList.positions[i].y, currentList.positions[i].z);
                 tw.WriteLine(currentList.positions[i].point + ";" +
                              currentList.positions[i].x + ";"+
                              currentList.positions[i].y + ";"+
                              currentList.positions[i].z + ";"+
+                             insideArea + ";"+
                              System.DateTime.Now.ToString(culture));
             }
             tw.Close();
