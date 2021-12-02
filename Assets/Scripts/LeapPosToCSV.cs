@@ -17,12 +17,14 @@ public class LeapPosToCSV : MonoBehaviour
         public float x;
         public float y;
         public float z;
+        public string timestamp;
 
-        public LeapHandPosition(string name, float tempX, float tempY, float tempZ){
+        public LeapHandPosition(string name, float tempX, float tempY, float tempZ, string tmp){
             point = name; 
             x = tempX;
             y = tempY;
             z = tempZ;
+            timestamp = tmp;
         }
     }
 
@@ -65,7 +67,11 @@ public class LeapPosToCSV : MonoBehaviour
         float tempY = handpointTransform.position.y;
         float tempZ = handpointTransform.position.z;
 
-        LeapHandPosition newPosition = new LeapHandPosition (handpoint.ToString(), tempX, tempY, tempZ);
+
+        var culture = new CultureInfo("de-DE");
+        string timestamp = System.DateTime.Now.ToString(culture);
+
+        LeapHandPosition newPosition = new LeapHandPosition (handpoint.ToString(), tempX, tempY, tempZ, timestamp);
     
         System.Array.Resize(ref currentList.positions, currentList.positions.Length+1);
            
@@ -102,17 +108,16 @@ public class LeapPosToCSV : MonoBehaviour
 
             tw = new StreamWriter(filename, true);
 
-            var culture = new CultureInfo("de-DE");
-
             for(int i = 0; i < currentList.positions.Length; i++)
             {
                 string insideArea = checkPointInsideArea(currentList.positions[i].x, currentList.positions[i].y, currentList.positions[i].z);
+                
                 tw.WriteLine(currentList.positions[i].point + ";" +
                              currentList.positions[i].x + ";"+
                              currentList.positions[i].y + ";"+
                              currentList.positions[i].z + ";"+
                              insideArea + ";"+
-                             System.DateTime.Now.ToString(culture));
+                             currentList.positions[i].timestamp);
             }
             tw.Close();
         }
