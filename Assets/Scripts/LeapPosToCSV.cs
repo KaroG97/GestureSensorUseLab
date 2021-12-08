@@ -136,11 +136,13 @@ public class LeapPosToCSV : MonoBehaviour
     public static Collider sensorArea211Collider;
     public static Collider sensorArea212Collider;
     public static Collider sensorArea213Collider; 
+
+   
     
     // Start is called before the first frame update
     void Start()
     {
-        
+       
         wristTransform = wrist.GetComponent<Transform>();
         indexTransform = index.GetComponent<Transform>();
         thumbTransform = thumb.GetComponent<Transform>();
@@ -174,12 +176,21 @@ public class LeapPosToCSV : MonoBehaviour
         sensorArea211Collider = sensorArea211.GetComponent<Collider>();
         sensorArea212Collider = sensorArea212.GetComponent<Collider>();
         sensorArea213Collider = sensorArea213.GetComponent<Collider>();
+
+        InvokeRepeating("collectPosition", 0.0f, 0.1f);
     }
 
     // Update is called once per frame
     void Update()
-    {
-        
+    {    
+        if(Input.GetKey("p"))
+        {
+            writeCSV();
+        }
+    }
+
+    public void collectPosition(){
+
         float tempWristX = wristTransform.position.x; 
         float tempWristY = wristTransform.position.y;
         float tempWristZ = wristTransform.position.z;
@@ -228,11 +239,6 @@ public class LeapPosToCSV : MonoBehaviour
         System.Array.Resize(ref currentList.positions, currentList.positions.Length+1);
            
         currentList.positions[currentList.positions.Length-1] = newPosition;
-
-        if(Input.GetKey("p"))
-        {
-            writeCSV();
-        }
     }
 
     public string[] checkPointInsideArea(Collider area, float x1, float y1, float z1,
