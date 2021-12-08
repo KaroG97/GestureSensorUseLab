@@ -574,7 +574,30 @@ MonoBehaviour:
   index: {fileID: 0}
   thumb: {fileID: 0}
   pinky: {fileID: 0}
-  sensorArea: {fileID: 211351672}
+  sensorArea000: {fileID: 0}
+  sensorArea001: {fileID: 0}
+  sensorArea002: {fileID: 0}
+  sensorArea003: {fileID: 0}
+  sensorArea010: {fileID: 0}
+  sensorArea011: {fileID: 0}
+  sensorArea012: {fileID: 0}
+  sensorArea013: {fileID: 0}
+  sensorArea100: {fileID: 0}
+  sensorArea101: {fileID: 0}
+  sensorArea102: {fileID: 0}
+  sensorArea103: {fileID: 0}
+  sensorArea110: {fileID: 0}
+  sensorArea111: {fileID: 0}
+  sensorArea112: {fileID: 0}
+  sensorArea113: {fileID: 0}
+  sensorArea200: {fileID: 0}
+  sensorArea201: {fileID: 0}
+  sensorArea202: {fileID: 0}
+  sensorArea203: {fileID: 0}
+  sensorArea210: {fileID: 0}
+  sensorArea211: {fileID: 0}
+  sensorArea212: {fileID: 0}
+  sensorArea213: {fileID: 0}
 --- !u!1 &234914902
 GameObject:
   m_ObjectHideFlags: 0
@@ -897,6 +920,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GhostHands
+      objectReference: {fileID: 0}
+    - target: {fileID: 1127402380299148798, guid: e7e358565e530214c97adba8c82fedc6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1222777990273355203, guid: e7e358565e530214c97adba8c82fedc6,
         type: 3}
@@ -1952,17 +1980,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 292270523c9258d44aa4900f89529196,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.24
+      value: 0.324
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 292270523c9258d44aa4900f89529196,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.939
+      value: 1.397
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 292270523c9258d44aa4900f89529196,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.407
+      value: 0.666
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 292270523c9258d44aa4900f89529196,
         type: 3}
@@ -2626,7 +2654,30 @@ MonoBehaviour:
   index: {fileID: 1574201386}
   thumb: {fileID: 683467274}
   pinky: {fileID: 1422930890}
-  sensorArea: {fileID: 794519618}
+  sensorArea000: {fileID: 794519618}
+  sensorArea001: {fileID: 794519642}
+  sensorArea002: {fileID: 794519641}
+  sensorArea003: {fileID: 794519640}
+  sensorArea010: {fileID: 794519639}
+  sensorArea011: {fileID: 794519638}
+  sensorArea012: {fileID: 794519637}
+  sensorArea013: {fileID: 794519636}
+  sensorArea100: {fileID: 794519635}
+  sensorArea101: {fileID: 794519634}
+  sensorArea102: {fileID: 794519633}
+  sensorArea103: {fileID: 794519632}
+  sensorArea110: {fileID: 794519631}
+  sensorArea111: {fileID: 794519630}
+  sensorArea112: {fileID: 794519629}
+  sensorArea113: {fileID: 794519628}
+  sensorArea200: {fileID: 794519627}
+  sensorArea201: {fileID: 794519626}
+  sensorArea202: {fileID: 794519625}
+  sensorArea203: {fileID: 794519624}
+  sensorArea210: {fileID: 794519623}
+  sensorArea211: {fileID: 794519622}
+  sensorArea212: {fileID: 794519621}
+  sensorArea213: {fileID: 794519620}
 --- !u!1 &878509401 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 504907499693046131, guid: e7e358565e530214c97adba8c82fedc6,
