@@ -55,25 +55,7 @@ public class DemonstrationUI : MonoBehaviour
             else if(Input.GetKey("return")){
                 RectTransform dummyRect = dummy.GetComponent<RectTransform>();
                 RectTransform targetRect = target.GetComponent<RectTransform>();
-                
-                Vector3[] v = new Vector3[4];
-                dummyRect.GetWorldCorners(v);
-                //print("V" + v[0].ToString("F4"));
-                //print("V" + v[1].ToString("F4"));
-                //print("V" + v[2].ToString("F4"));
-                //print("V" + v[3].ToString("F4"));
-                
-                print("Dummy Position " + dummyRect.position.ToString("F4"));
-                print("Target Position " + targetRect.position.ToString("F4"));
-                if(dummyRect.position.x == targetRect.position.x &&
-                   dummyRect.position.y == targetRect.position.y &&
-                   dummyRect.position.z == targetRect.position.z ){
-                    print("JA");
-                }
-                else{
-                    print("NE");
-                }
-
+               
                 Rect dummyRectWorld = GetWorldSapceRect(dummyRect);
                 Rect targetRectWorld = GetWorldSapceRect(targetRect);
 
@@ -88,13 +70,14 @@ public class DemonstrationUI : MonoBehaviour
        }
     }
 
-    Rect GetWorldSapceRect(RectTransform rt)
+    Rect GetWorldSapceRect(RectTransform rectTransform)
     {
-        var r = rt.rect;
-        r.center = rt.TransformPoint(r.center);
-        //print("Center" + r.position);
-        //r.size = rt.TransformVector(r.size);        
-        return r;
+        Vector2 sizeDelta = rectTransform.sizeDelta;
+        float rectTransformWidth = sizeDelta.x * rectTransform.lossyScale.x;
+        float rectTransformHeight = sizeDelta.y * rectTransform.lossyScale.y;
+
+        Vector3 position = rectTransform.position;
+        return new Rect(position.x - rectTransformWidth / 2f, position.y - rectTransformHeight / 2f, rectTransformWidth, rectTransformHeight);
     }
 
 }
