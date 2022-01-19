@@ -12,6 +12,12 @@ public class DemonstrationUI : MonoBehaviour
     private Image targetImage; 
     private Image dummyImage;
 
+    public Button button1;
+    public Button button2;
+    public Button button3;
+    public Button button4;
+    public Button button5;
+
     public string mode; 
 
     // Start is called before the first frame update
@@ -30,6 +36,7 @@ public class DemonstrationUI : MonoBehaviour
        {    
            mode = "buttonList";
            print("Switched to button list mode!");
+           button1.onClick.Invoke();
        } 
        else if(Input.GetKey("t"))
        {
@@ -66,10 +73,20 @@ public class DemonstrationUI : MonoBehaviour
                     dummyImage.color =  Color.red;
                 }    
             }
+        break;       
+        case "buttonList":
+                if(Input.GetKey("up")){
+
+                }
+                else if(Input.GetKey("down")){
+        
+                }
         break;
        }
     }
 
+
+    // Function to transfer the image data from the canvas to world space
     Rect GetWorldSapceRect(RectTransform rectTransform)
     {
         Vector2 sizeDelta = rectTransform.sizeDelta;
