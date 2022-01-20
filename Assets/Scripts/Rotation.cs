@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class Rotation : MonoBehaviour
 {
-    public string mode;
-    public string dimension;
+    public static string mode;
+    public static string dimension;
 
    
     // Define gameobjects for text output
@@ -28,6 +28,8 @@ public class Rotation : MonoBehaviour
     private static GameObject corner7;
     private static GameObject corner8;
 
+    private static GameObject[] corners;
+
     private static Renderer corner1Renderer;
     private static Renderer corner2Renderer;
     private static Renderer corner3Renderer;
@@ -37,7 +39,8 @@ public class Rotation : MonoBehaviour
     private static Renderer corner7Renderer;
     private static Renderer corner8Renderer;
 
-    private string selectedCorner; 
+    //private string selectedCorner;
+    private int activeCorner; 
 
     // Define cutting planes
 
@@ -50,6 +53,9 @@ public class Rotation : MonoBehaviour
     private static Renderer cuttingPlaneZRenderer;
 
     private string selectedCuttingPlane;
+
+    private static GameObject target;
+    private static GameObject dummy;
 
 
 
@@ -73,23 +79,17 @@ public class Rotation : MonoBehaviour
 
         // Fill corner gameobjects
 
-        corner1 = GameObject.Find("corner1");
-        corner2 = GameObject.Find("corner2");
-        corner3 = GameObject.Find("corner3");
-        corner4 = GameObject.Find("corner4");
-        corner5 = GameObject.Find("corner5");
-        corner6 = GameObject.Find("corner6");
-        corner7 = GameObject.Find("corner7");
-        corner8 = GameObject.Find("corner8");
+        corners = new GameObject[8];
+        activeCorner = 0;
 
-        corner1Renderer = corner1.GetComponent<Renderer>();
-        corner2Renderer = corner2.GetComponent<Renderer>();
-        corner3Renderer = corner3.GetComponent<Renderer>();
-        corner4Renderer = corner4.GetComponent<Renderer>();
-        corner5Renderer = corner5.GetComponent<Renderer>();
-        corner6Renderer = corner6.GetComponent<Renderer>();
-        corner7Renderer = corner7.GetComponent<Renderer>();
-        corner8Renderer = corner8.GetComponent<Renderer>();
+        corners[0] = GameObject.Find("corner1");
+        corners[1] = GameObject.Find("corner2");
+        corners[2] = GameObject.Find("corner3");
+        corners[3] = GameObject.Find("corner4");
+        corners[4] = GameObject.Find("corner5");
+        corners[5] = GameObject.Find("corner6");
+        corners[6] = GameObject.Find("corner7");
+        corners[7] = GameObject.Find("corner8");
 
         // Fill cutting plane gameobjects
 
@@ -103,15 +103,9 @@ public class Rotation : MonoBehaviour
     }
 
     public void deselectAllCorners(){
-        print("Deselect all corners!");
-        corner1Renderer.material.SetColor("_Color", Color.white); 
-        corner2Renderer.material.SetColor("_Color", Color.white);
-        corner3Renderer.material.SetColor("_Color", Color.white);
-        corner4Renderer.material.SetColor("_Color", Color.white);
-        corner5Renderer.material.SetColor("_Color", Color.white);
-        corner6Renderer.material.SetColor("_Color", Color.white);       
-        corner7Renderer.material.SetColor("_Color", Color.white);
-        corner8Renderer.material.SetColor("_Color", Color.white);
+        for(int i = 0; i < 8; i++){
+            corners[i].GetComponent<Renderer>().material.SetColor("_Color", Color.white);
+        }
     }
 
     public void deselectAllPlanes(){
@@ -121,88 +115,80 @@ public class Rotation : MonoBehaviour
         cuttingPlaneZRenderer.material.SetColor("_Color", Color.white);
     }
 
+    public static void Init(){
+        mode = "rotation";
+        dimension = "x";
+        textDimension.text = dimension; 
+        textMode.text = mode;
+    }
+
+    public static void checkPosition(){
+
+        target = GameObject.Find("TargetCube");
+        Collider targetCollider = target.GetComponent<Collider>();
+
+        bool collision = false;
+
+        for(int i = 0; i < 8; i++){
+            Vector3 coordinates = corners[i].transform.position;
+            if(targetCollider.bounds.Contains(coordinates)){
+                collision = true; 
+                break;               
+            }
+        }
+
+        if(collision == true){
+            target.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
+        }
+        else{
+            target.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
+        }        
+    }
+
     void Update()
     {
         // Switch Modes
-        if(Input.GetKey("r")){
+        if(Input.GetKeyDown("r")){
             mode = "rotation";
             print("Switched to rotation mode!");
             textMode.text = "rotation";             
         }
-        else if(Input.GetKey("s")){
+        else if(Input.GetKeyDown("s")){
             mode = "scaling";
             print("Switched to scaling mode!");
             textMode.text = "scaling";
         }
-        else if(Input.GetKey("t")){
+        else if(Input.GetKeyDown("t")){
             mode = "translation";
             print("Switched to translation mode!");
             textMode.text = "translation";
         }
+        else if(Input.GetKeyDown("c")){
+            mode = "corner";
+            print("Switched to corner mode!");
+            textMode.text = "corner";
+        }
 
         // Switch Dimensions
-        else if(Input.GetKey("x")){
+        else if(Input.GetKeyDown("x")){
             dimension = "x";
             print("Switched to dimension x!");
             textDimension.text = dimension;
         }
-        else if(Input.GetKey("y")){
+        else if(Input.GetKeyDown("y")){
             dimension = "y";
             print("Switched to dimension y!");
             textDimension.text = dimension;
         }
-        else if(Input.GetKey("z")){
+        else if(Input.GetKeyDown("z")){
             dimension = "z";
             print("Switched to dimension z!");
             textDimension.text = dimension;
         }
 
-        // Select Corners
-
-        else if(Input.GetKey("1")){
-            deselectAllCorners();
-            selectedCorner = "corner1";
-            print("Selected Corner 1!");            
-        }
-        else if(Input.GetKey("2")){
-            deselectAllCorners();
-            selectedCorner = "corner2";
-            print("Selected Corner 2!");            
-        }
-        else if(Input.GetKey("3")){
-            deselectAllCorners();
-            selectedCorner = "corner3";
-            print("Selected Corner 3!");            
-        }
-        else if(Input.GetKey("4")){
-            deselectAllCorners();
-            selectedCorner = "corner4";
-            print("Selected Corner 4!");            
-        }
-        else if(Input.GetKey("5")){
-            deselectAllCorners();
-            selectedCorner = "corner5";
-            print("Selected Corner 5!");            
-        }
-        else if(Input.GetKey("6")){
-            deselectAllCorners();
-            selectedCorner = "corner6";
-            print("Selected Corner 6!");            
-        }
-        else if(Input.GetKey("7")){
-            deselectAllCorners();
-            selectedCorner = "corner7";
-            print("Selected Corner 7!");            
-        }
-        else if(Input.GetKey("8")){
-            deselectAllCorners();
-            selectedCorner = "corner8";
-            print("Selected Corner 8!");            
-        }
-
         // Select cutting planes
 
-        else if(Input.GetKey("j")){
+        else if(Input.GetKeyDown("j")){
             deselectAllPlanes();
             mode = "cuttingPlane";
             dimension = "x";
@@ -212,7 +198,7 @@ public class Rotation : MonoBehaviour
             selectedCuttingPlane = "cuttingPlaneX";
             print("Selected Cutting Plane X");
         }
-        else if(Input.GetKey("k")){
+        else if(Input.GetKeyDown("k")){
             deselectAllPlanes();
             mode = "cuttingPlane";
             dimension = "y";
@@ -222,7 +208,7 @@ public class Rotation : MonoBehaviour
             selectedCuttingPlane = "cuttingPlaneY";
             print("Selected Cutting Plane Y");
         }
-        else if(Input.GetKey("l")){
+        else if(Input.GetKeyDown("l")){
             deselectAllPlanes();
             mode = "cuttingPlane";
             dimension = "z";
@@ -253,36 +239,7 @@ public class Rotation : MonoBehaviour
             break;
         }
 
-        // Corner Selection
-
-        switch(selectedCorner){            
-            case "corner1":
-                corner1Renderer.material.SetColor("_Color", Color.blue);
-            break;
-            case "corner2":
-                corner2Renderer.material.SetColor("_Color", Color.blue);
-            break;
-            case "corner3":
-                corner3Renderer.material.SetColor("_Color", Color.blue);
-            break;
-            case "corner4":
-                corner4Renderer.material.SetColor("_Color", Color.blue);
-            break;
-            case "corner5":
-                corner5Renderer.material.SetColor("_Color", Color.blue);
-            break;
-            case "corner6":
-                corner6Renderer.material.SetColor("_Color", Color.blue);
-            break;
-            case "corner7":
-                corner7Renderer.material.SetColor("_Color", Color.blue);
-            break;
-            case "corner8":
-                corner8Renderer.material.SetColor("_Color", Color.blue);
-            break;
-            default:
-            break;
-        }
+       
 
         // Geometric transformation
 
@@ -358,6 +315,9 @@ public class Rotation : MonoBehaviour
                         transform.Translate(0,0,-0.01f);
                     }
                 }
+                else if(Input.GetKeyDown("return")){
+                    checkPosition();
+                }
                 break;
             case "cuttingPlane":
                 if(dimension == "x"){                     
@@ -384,6 +344,30 @@ public class Rotation : MonoBehaviour
                         cuttingPlaneZ.transform.Translate(0,0, -0.001f);
                     }
                 }
+            break;
+            case "corner":
+                if(Input.GetKeyDown("down")){
+                    deselectAllCorners();
+                    if(activeCorner == 7){
+                        activeCorner = 0;
+                    }
+                    else{
+                        activeCorner ++;
+                    }
+                    //selectedCorner = corners[activeCorner];
+                    corners[activeCorner].GetComponent<Renderer>().material.SetColor("_Color", Color.blue);
+                }
+            else if(Input.GetKeyDown("up")){
+                deselectAllCorners();
+                if(activeCorner == 0){
+                    activeCorner = 7;
+                }
+                else{
+                    activeCorner --;
+                }
+                //selectedCorner = corners[activeCorner];
+                corners[activeCorner].GetComponent<Renderer>().material.SetColor("_Color", Color.blue);
+            }
             break;
             default:
                 break;

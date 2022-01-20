@@ -5,6 +5,5 @@ using UnityEngine;
 public class buttonHandler : MonoBehaviour
 {
     public void handleClick(){
-        print("I bims klick");
     }
 }

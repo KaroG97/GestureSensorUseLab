@@ -15,6 +15,7 @@ public class ElicitationDisplay : MonoBehaviour
     void Start()
     {
         activeUI = "2D";
+        DemonstrationUI.Init();
         ui3D.active = false;
         ui2D.active = true;
     }
@@ -22,18 +23,20 @@ public class ElicitationDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey("2"))
+        if(Input.GetKeyDown("2"))
         {
             activeUI = "2D";
             ui3D.active = false; 
             ui2D.active = true;
+            DemonstrationUI.Init();
             print("Switched to 2D elicitation");
         }
-        else if(Input.GetKey("3"))
+        else if(Input.GetKeyDown("3"))
         {
             activeUI = "3D";
             ui2D.active = false;
             ui3D.active = true;
+            Rotation.Init();
             print("Switched to 3D elicitation");
         }
 
