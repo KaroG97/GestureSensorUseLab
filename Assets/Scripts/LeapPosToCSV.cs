@@ -112,33 +112,7 @@ public class LeapPosToCSV : MonoBehaviour
     public GameObject sensorArea212;
     public GameObject sensorArea213;
 
-    public static Collider sensorArea000Collider;
-    public static Collider sensorArea001Collider;
-    public static Collider sensorArea002Collider;
-    public static Collider sensorArea003Collider;
-    public static Collider sensorArea010Collider;
-    public static Collider sensorArea011Collider;
-    public static Collider sensorArea012Collider;
-    public static Collider sensorArea013Collider;
-    public static Collider sensorArea100Collider;
-    public static Collider sensorArea101Collider;
-    public static Collider sensorArea102Collider;
-    public static Collider sensorArea103Collider;
-    public static Collider sensorArea110Collider;
-    public static Collider sensorArea111Collider;
-    public static Collider sensorArea112Collider;
-    public static Collider sensorArea113Collider;
-    public static Collider sensorArea200Collider;
-    public static Collider sensorArea201Collider;
-    public static Collider sensorArea202Collider;
-    public static Collider sensorArea203Collider;
-    public static Collider sensorArea210Collider;
-    public static Collider sensorArea211Collider;
-    public static Collider sensorArea212Collider;
-    public static Collider sensorArea213Collider; 
-
-   
-    
+      
     // Start is called before the first frame update
     void Start()
     {
@@ -149,33 +123,6 @@ public class LeapPosToCSV : MonoBehaviour
         pinkyTransform = pinky.GetComponent<Transform>();
 
         filename = Application.dataPath + filename;
-
-        //sensorAreaCollider = sensorArea.GetComponent<Collider>();
-
-        sensorArea000Collider = sensorArea000.GetComponent<Collider>();
-        sensorArea001Collider = sensorArea001.GetComponent<Collider>();
-        sensorArea002Collider = sensorArea002.GetComponent<Collider>();
-        sensorArea003Collider = sensorArea003.GetComponent<Collider>();
-        sensorArea010Collider = sensorArea010.GetComponent<Collider>();
-        sensorArea011Collider = sensorArea011.GetComponent<Collider>();
-        sensorArea012Collider = sensorArea012.GetComponent<Collider>();
-        sensorArea013Collider = sensorArea013.GetComponent<Collider>();
-        sensorArea100Collider = sensorArea100.GetComponent<Collider>();
-        sensorArea101Collider = sensorArea101.GetComponent<Collider>();
-        sensorArea102Collider = sensorArea102.GetComponent<Collider>();
-        sensorArea103Collider = sensorArea103.GetComponent<Collider>();
-        sensorArea110Collider = sensorArea110.GetComponent<Collider>();
-        sensorArea111Collider = sensorArea111.GetComponent<Collider>();
-        sensorArea112Collider = sensorArea112.GetComponent<Collider>();
-        sensorArea113Collider = sensorArea113.GetComponent<Collider>();
-        sensorArea200Collider = sensorArea200.GetComponent<Collider>();
-        sensorArea201Collider = sensorArea201.GetComponent<Collider>();
-        sensorArea202Collider = sensorArea202.GetComponent<Collider>();
-        sensorArea203Collider = sensorArea203.GetComponent<Collider>();
-        sensorArea210Collider = sensorArea210.GetComponent<Collider>();
-        sensorArea211Collider = sensorArea211.GetComponent<Collider>();
-        sensorArea212Collider = sensorArea212.GetComponent<Collider>();
-        sensorArea213Collider = sensorArea213.GetComponent<Collider>();
 
         InvokeRepeating("collectPosition", 0.0f, 0.1f);
     }
@@ -241,12 +188,14 @@ public class LeapPosToCSV : MonoBehaviour
         currentList.positions[currentList.positions.Length-1] = newPosition;
     }
 
-    public string[] checkPointInsideArea(Collider area, float x1, float y1, float z1,
+    public string[] checkPointInsideArea(GameObject area, float x1, float y1, float z1,
                                                         float x2, float y2, float z2,
                                                         float x3, float y3, float z3,
                                                         float x4, float y4, float z4)
     {
         Vector3[] pointsToCheck = new Vector3[4];
+
+        Collider areaCollider = area.GetComponent<Collider>();
 
         pointsToCheck[0] = new Vector3(x1, y1, z1);
         pointsToCheck[1] = new Vector3(x2, y2, z2);
@@ -256,9 +205,10 @@ public class LeapPosToCSV : MonoBehaviour
         string[] result = new string[4];
         
         for( int i = 0; i < 4; i++ ){
-            if(area.bounds.Contains(pointsToCheck[i]))
+            if(areaCollider.bounds.Contains(pointsToCheck[i]))
             {
                 result[i] = "true";
+
             }
             else
             {
@@ -309,122 +259,122 @@ public class LeapPosToCSV : MonoBehaviour
             {
                 //string insideArea = checkPointInsideArea(currentList.positions[i].x, currentList.positions[i].y, currentList.positions[i].z);
                 
-                insideSensorArea000 = checkPointInsideArea(sensorArea000Collider, 
+                insideSensorArea000 = checkPointInsideArea(sensorArea000, 
                                                            currentList.positions[i].absoluteX1, currentList.positions[i].absoluteY1, currentList.positions[i].absoluteZ1,
                                                            currentList.positions[i].absoluteX2, currentList.positions[i].absoluteY2, currentList.positions[i].absoluteZ2,
                                                            currentList.positions[i].absoluteX3, currentList.positions[i].absoluteY3, currentList.positions[i].absoluteZ3,
                                                            currentList.positions[i].absoluteX4, currentList.positions[i].absoluteY4, currentList.positions[i].absoluteZ4);
-                insideSensorArea001 = checkPointInsideArea(sensorArea001Collider, 
+                insideSensorArea001 = checkPointInsideArea(sensorArea001, 
                                                            currentList.positions[i].absoluteX1, currentList.positions[i].absoluteY1, currentList.positions[i].absoluteZ1,
                                                            currentList.positions[i].absoluteX2, currentList.positions[i].absoluteY2, currentList.positions[i].absoluteZ2,
                                                            currentList.positions[i].absoluteX3, currentList.positions[i].absoluteY3, currentList.positions[i].absoluteZ3,
                                                            currentList.positions[i].absoluteX4, currentList.positions[i].absoluteY4, currentList.positions[i].absoluteZ4);
-                insideSensorArea002 = checkPointInsideArea(sensorArea002Collider, 
+                insideSensorArea002 = checkPointInsideArea(sensorArea002,
                                                            currentList.positions[i].absoluteX1, currentList.positions[i].absoluteY1, currentList.positions[i].absoluteZ1,
                                                            currentList.positions[i].absoluteX2, currentList.positions[i].absoluteY2, currentList.positions[i].absoluteZ2,
                                                            currentList.positions[i].absoluteX3, currentList.positions[i].absoluteY3, currentList.positions[i].absoluteZ3,
                                                            currentList.positions[i].absoluteX4, currentList.positions[i].absoluteY4, currentList.positions[i].absoluteZ4);
-                insideSensorArea003 = checkPointInsideArea(sensorArea003Collider, 
+                insideSensorArea003 = checkPointInsideArea(sensorArea003,
                                                            currentList.positions[i].absoluteX1, currentList.positions[i].absoluteY1, currentList.positions[i].absoluteZ1,
                                                            currentList.positions[i].absoluteX2, currentList.positions[i].absoluteY2, currentList.positions[i].absoluteZ2,
                                                            currentList.positions[i].absoluteX3, currentList.positions[i].absoluteY3, currentList.positions[i].absoluteZ3,
                                                            currentList.positions[i].absoluteX4, currentList.positions[i].absoluteY4, currentList.positions[i].absoluteZ4);
-                insideSensorArea010 = checkPointInsideArea(sensorArea010Collider, 
+                insideSensorArea010 = checkPointInsideArea(sensorArea010, 
                                                            currentList.positions[i].absoluteX1, currentList.positions[i].absoluteY1, currentList.positions[i].absoluteZ1,
                                                            currentList.positions[i].absoluteX2, currentList.positions[i].absoluteY2, currentList.positions[i].absoluteZ2,
                                                            currentList.positions[i].absoluteX3, currentList.positions[i].absoluteY3, currentList.positions[i].absoluteZ3,
                                                            currentList.positions[i].absoluteX4, currentList.positions[i].absoluteY4, currentList.positions[i].absoluteZ4);
-                insideSensorArea011 = checkPointInsideArea(sensorArea011Collider, 
+                insideSensorArea011 = checkPointInsideArea(sensorArea011, 
                                                            currentList.positions[i].absoluteX1, currentList.positions[i].absoluteY1, currentList.positions[i].absoluteZ1,
                                                            currentList.positions[i].absoluteX2, currentList.positions[i].absoluteY2, currentList.positions[i].absoluteZ2,
                                                            currentList.positions[i].absoluteX3, currentList.positions[i].absoluteY3, currentList.positions[i].absoluteZ3,
                                                            currentList.positions[i].absoluteX4, currentList.positions[i].absoluteY4, currentList.positions[i].absoluteZ4);
-                insideSensorArea012 = checkPointInsideArea(sensorArea012Collider, 
+                insideSensorArea012 = checkPointInsideArea(sensorArea012, 
                                                            currentList.positions[i].absoluteX1, currentList.positions[i].absoluteY1, currentList.positions[i].absoluteZ1,
                                                            currentList.positions[i].absoluteX2, currentList.positions[i].absoluteY2, currentList.positions[i].absoluteZ2,
                                                            currentList.positions[i].absoluteX3, currentList.positions[i].absoluteY3, currentList.positions[i].absoluteZ3,
                                                            currentList.positions[i].absoluteX4, currentList.positions[i].absoluteY4, currentList.positions[i].absoluteZ4);
-                insideSensorArea013 = checkPointInsideArea(sensorArea013Collider, 
+                insideSensorArea013 = checkPointInsideArea(sensorArea013,
                                                            currentList.positions[i].absoluteX1, currentList.positions[i].absoluteY1, currentList.positions[i].absoluteZ1,
                                                            currentList.positions[i].absoluteX2, currentList.positions[i].absoluteY2, currentList.positions[i].absoluteZ2,
                                                            currentList.positions[i].absoluteX3, currentList.positions[i].absoluteY3, currentList.positions[i].absoluteZ3,
                                                            currentList.positions[i].absoluteX4, currentList.positions[i].absoluteY4, currentList.positions[i].absoluteZ4);
-                insideSensorArea100 = checkPointInsideArea(sensorArea100Collider, 
+                insideSensorArea100 = checkPointInsideArea(sensorArea100, 
                                                            currentList.positions[i].absoluteX1, currentList.positions[i].absoluteY1, currentList.positions[i].absoluteZ1,
                                                            currentList.positions[i].absoluteX2, currentList.positions[i].absoluteY2, currentList.positions[i].absoluteZ2,
                                                            currentList.positions[i].absoluteX3, currentList.positions[i].absoluteY3, currentList.positions[i].absoluteZ3,
                                                            currentList.positions[i].absoluteX4, currentList.positions[i].absoluteY4, currentList.positions[i].absoluteZ4);
-                insideSensorArea101 = checkPointInsideArea(sensorArea101Collider, 
+                insideSensorArea101 = checkPointInsideArea(sensorArea101,
                                                            currentList.positions[i].absoluteX1, currentList.positions[i].absoluteY1, currentList.positions[i].absoluteZ1,
                                                            currentList.positions[i].absoluteX2, currentList.positions[i].absoluteY2, currentList.positions[i].absoluteZ2,
                                                            currentList.positions[i].absoluteX3, currentList.positions[i].absoluteY3, currentList.positions[i].absoluteZ3,
                                                            currentList.positions[i].absoluteX4, currentList.positions[i].absoluteY4, currentList.positions[i].absoluteZ4);
-                insideSensorArea102 = checkPointInsideArea(sensorArea102Collider, 
+                insideSensorArea102 = checkPointInsideArea(sensorArea102,
                                                            currentList.positions[i].absoluteX1, currentList.positions[i].absoluteY1, currentList.positions[i].absoluteZ1,
                                                            currentList.positions[i].absoluteX2, currentList.positions[i].absoluteY2, currentList.positions[i].absoluteZ2,
                                                            currentList.positions[i].absoluteX3, currentList.positions[i].absoluteY3, currentList.positions[i].absoluteZ3,
                                                            currentList.positions[i].absoluteX4, currentList.positions[i].absoluteY4, currentList.positions[i].absoluteZ4);
-                insideSensorArea103 = checkPointInsideArea(sensorArea103Collider, 
+                insideSensorArea103 = checkPointInsideArea(sensorArea103, 
                                                            currentList.positions[i].absoluteX1, currentList.positions[i].absoluteY1, currentList.positions[i].absoluteZ1,
                                                            currentList.positions[i].absoluteX2, currentList.positions[i].absoluteY2, currentList.positions[i].absoluteZ2,
                                                            currentList.positions[i].absoluteX3, currentList.positions[i].absoluteY3, currentList.positions[i].absoluteZ3,
                                                            currentList.positions[i].absoluteX4, currentList.positions[i].absoluteY4, currentList.positions[i].absoluteZ4);
-                insideSensorArea110 = checkPointInsideArea(sensorArea110Collider, 
+                insideSensorArea110 = checkPointInsideArea(sensorArea110, 
                                                            currentList.positions[i].absoluteX1, currentList.positions[i].absoluteY1, currentList.positions[i].absoluteZ1,
                                                            currentList.positions[i].absoluteX2, currentList.positions[i].absoluteY2, currentList.positions[i].absoluteZ2,
                                                            currentList.positions[i].absoluteX3, currentList.positions[i].absoluteY3, currentList.positions[i].absoluteZ3,
                                                            currentList.positions[i].absoluteX4, currentList.positions[i].absoluteY4, currentList.positions[i].absoluteZ4);
-                insideSensorArea111 = checkPointInsideArea(sensorArea111Collider, 
+                insideSensorArea111 = checkPointInsideArea(sensorArea111,
                                                            currentList.positions[i].absoluteX1, currentList.positions[i].absoluteY1, currentList.positions[i].absoluteZ1,
                                                            currentList.positions[i].absoluteX2, currentList.positions[i].absoluteY2, currentList.positions[i].absoluteZ2,
                                                            currentList.positions[i].absoluteX3, currentList.positions[i].absoluteY3, currentList.positions[i].absoluteZ3,
                                                            currentList.positions[i].absoluteX4, currentList.positions[i].absoluteY4, currentList.positions[i].absoluteZ4);
-                insideSensorArea112 = checkPointInsideArea(sensorArea112Collider, 
+                insideSensorArea112 = checkPointInsideArea(sensorArea112, 
                                                            currentList.positions[i].absoluteX1, currentList.positions[i].absoluteY1, currentList.positions[i].absoluteZ1,
                                                            currentList.positions[i].absoluteX2, currentList.positions[i].absoluteY2, currentList.positions[i].absoluteZ2,
                                                            currentList.positions[i].absoluteX3, currentList.positions[i].absoluteY3, currentList.positions[i].absoluteZ3,
                                                            currentList.positions[i].absoluteX4, currentList.positions[i].absoluteY4, currentList.positions[i].absoluteZ4);
-                insideSensorArea113 = checkPointInsideArea(sensorArea113Collider, 
+                insideSensorArea113 = checkPointInsideArea(sensorArea113,
                                                            currentList.positions[i].absoluteX1, currentList.positions[i].absoluteY1, currentList.positions[i].absoluteZ1,
                                                            currentList.positions[i].absoluteX2, currentList.positions[i].absoluteY2, currentList.positions[i].absoluteZ2,
                                                            currentList.positions[i].absoluteX3, currentList.positions[i].absoluteY3, currentList.positions[i].absoluteZ3,
                                                            currentList.positions[i].absoluteX4, currentList.positions[i].absoluteY4, currentList.positions[i].absoluteZ4);
-                insideSensorArea200 = checkPointInsideArea(sensorArea200Collider, 
+                insideSensorArea200 = checkPointInsideArea(sensorArea200,
                                                            currentList.positions[i].absoluteX1, currentList.positions[i].absoluteY1, currentList.positions[i].absoluteZ1,
                                                            currentList.positions[i].absoluteX2, currentList.positions[i].absoluteY2, currentList.positions[i].absoluteZ2,
                                                            currentList.positions[i].absoluteX3, currentList.positions[i].absoluteY3, currentList.positions[i].absoluteZ3,
                                                            currentList.positions[i].absoluteX4, currentList.positions[i].absoluteY4, currentList.positions[i].absoluteZ4);
-                insideSensorArea201 = checkPointInsideArea(sensorArea201Collider, 
+                insideSensorArea201 = checkPointInsideArea(sensorArea201,
                                                            currentList.positions[i].absoluteX1, currentList.positions[i].absoluteY1, currentList.positions[i].absoluteZ1,
                                                            currentList.positions[i].absoluteX2, currentList.positions[i].absoluteY2, currentList.positions[i].absoluteZ2,
                                                            currentList.positions[i].absoluteX3, currentList.positions[i].absoluteY3, currentList.positions[i].absoluteZ3,
                                                            currentList.positions[i].absoluteX4, currentList.positions[i].absoluteY4, currentList.positions[i].absoluteZ4);
-                insideSensorArea202 = checkPointInsideArea(sensorArea202Collider, 
+                insideSensorArea202 = checkPointInsideArea(sensorArea202,
                                                            currentList.positions[i].absoluteX1, currentList.positions[i].absoluteY1, currentList.positions[i].absoluteZ1,
                                                            currentList.positions[i].absoluteX2, currentList.positions[i].absoluteY2, currentList.positions[i].absoluteZ2,
                                                            currentList.positions[i].absoluteX3, currentList.positions[i].absoluteY3, currentList.positions[i].absoluteZ3,
                                                            currentList.positions[i].absoluteX4, currentList.positions[i].absoluteY4, currentList.positions[i].absoluteZ4);
-                insideSensorArea203 = checkPointInsideArea(sensorArea203Collider, 
+                insideSensorArea203 = checkPointInsideArea(sensorArea203, 
                                                            currentList.positions[i].absoluteX1, currentList.positions[i].absoluteY1, currentList.positions[i].absoluteZ1,
                                                            currentList.positions[i].absoluteX2, currentList.positions[i].absoluteY2, currentList.positions[i].absoluteZ2,
                                                            currentList.positions[i].absoluteX3, currentList.positions[i].absoluteY3, currentList.positions[i].absoluteZ3,
                                                            currentList.positions[i].absoluteX4, currentList.positions[i].absoluteY4, currentList.positions[i].absoluteZ4);
-                insideSensorArea210 = checkPointInsideArea(sensorArea210Collider, 
+                insideSensorArea210 = checkPointInsideArea(sensorArea210, 
                                                            currentList.positions[i].absoluteX1, currentList.positions[i].absoluteY1, currentList.positions[i].absoluteZ1,
                                                            currentList.positions[i].absoluteX2, currentList.positions[i].absoluteY2, currentList.positions[i].absoluteZ2,
                                                            currentList.positions[i].absoluteX3, currentList.positions[i].absoluteY3, currentList.positions[i].absoluteZ3,
                                                            currentList.positions[i].absoluteX4, currentList.positions[i].absoluteY4, currentList.positions[i].absoluteZ4);
-                insideSensorArea211 = checkPointInsideArea(sensorArea211Collider, 
+                insideSensorArea211 = checkPointInsideArea(sensorArea211, 
                                                            currentList.positions[i].absoluteX1, currentList.positions[i].absoluteY1, currentList.positions[i].absoluteZ1,
                                                            currentList.positions[i].absoluteX2, currentList.positions[i].absoluteY2, currentList.positions[i].absoluteZ2,
                                                            currentList.positions[i].absoluteX3, currentList.positions[i].absoluteY3, currentList.positions[i].absoluteZ3,
                                                            currentList.positions[i].absoluteX4, currentList.positions[i].absoluteY4, currentList.positions[i].absoluteZ4);
-                insideSensorArea212 = checkPointInsideArea(sensorArea212Collider, 
+                insideSensorArea212 = checkPointInsideArea(sensorArea212,
                                                            currentList.positions[i].absoluteX1, currentList.positions[i].absoluteY1, currentList.positions[i].absoluteZ1,
                                                            currentList.positions[i].absoluteX2, currentList.positions[i].absoluteY2, currentList.positions[i].absoluteZ2,
                                                            currentList.positions[i].absoluteX3, currentList.positions[i].absoluteY3, currentList.positions[i].absoluteZ3,
                                                            currentList.positions[i].absoluteX4, currentList.positions[i].absoluteY4, currentList.positions[i].absoluteZ4);
-                insideSensorArea213 = checkPointInsideArea(sensorArea213Collider, 
+                insideSensorArea213 = checkPointInsideArea(sensorArea213,
                                                            currentList.positions[i].absoluteX1, currentList.positions[i].absoluteY1, currentList.positions[i].absoluteZ1,
                                                            currentList.positions[i].absoluteX2, currentList.positions[i].absoluteY2, currentList.positions[i].absoluteZ2,
                                                            currentList.positions[i].absoluteX3, currentList.positions[i].absoluteY3, currentList.positions[i].absoluteZ3,

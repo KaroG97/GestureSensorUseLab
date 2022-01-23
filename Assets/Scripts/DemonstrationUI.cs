@@ -45,7 +45,7 @@ public class DemonstrationUI : MonoBehaviour
         activeButtonIndex = 0;
 
         for(int i = 0; i < 5; i++){
-               buttonList[i].interactable = false;
+               buttonList[i].gameObject.SetActive(false);
         }
 
         targetImage = target.GetComponent<Image>();
@@ -68,16 +68,20 @@ public class DemonstrationUI : MonoBehaviour
            mode = "buttonList";
            print("Switched to button list mode!");
            for(int i = 0; i < 5; i++){
-               buttonList[i].interactable = true;
+               buttonList[i].gameObject.SetActive(true);
            }
+           dummy.active = false;
+           target.active = false;
            buttonList[activeButtonIndex].onClick.Invoke();
            textMode.text = mode;
        } 
        else if(Input.GetKeyDown("t"))
        {
            mode = "target";
+           dummy.active = true;
+           target.active = true;
            for(int i = 0; i < 5; i++){
-               buttonList[i].interactable = false;
+               buttonList[i].gameObject.SetActive(false);
            }
            textMode.text = mode;
 
