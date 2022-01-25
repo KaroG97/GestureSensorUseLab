@@ -5,8 +5,8 @@ using UnityEngine;
 public class OutlineHandler : MonoBehaviour
 {
 
-    public AudioClip enter; 
-    public AudioClip leave; 
+    public AudioSource enter; 
+    public AudioSource leave; 
 
     public bool greatOutline  = false;
 
@@ -25,32 +25,40 @@ public class OutlineHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        checkCollision(this, wrist, index, thumb, pinky);
+        checkCollision(this.gameObject, wrist, index, thumb, pinky);
     }
 
-    void checkCollision(GameObject collider, GameObject wrist, GameObject index, GameObject thumb, GameObject pinky){
+    void checkCollision(GameObject area, GameObject wrist, GameObject index, GameObject thumb, GameObject pinky){
         Vector3[] pointsToCheck = new Vector3[4];
 
         Collider areaCollider = area.GetComponent<Collider>();
 
-        //pointsToCheck[0] = new Vector3(x1, y1, z1);
-        //pointsToCheck[1] = new Vector3(x2, y2, z2);
-        //pointsToCheck[2] = new Vector3(x3, y3, z3);
-        //pointsToCheck[3] = new Vector3(x4, y4, z4);
+        pointsToCheck[0] = new Vector3(wrist.GetComponent<Transform>().position.x, wrist.GetComponent<Transform>().position.y, wrist.GetComponent<Transform>().position.z);
+        pointsToCheck[1] = new Vector3(index.GetComponent<Transform>().position.x, index.GetComponent<Transform>().position.y, index.GetComponent<Transform>().position.z);
+        pointsToCheck[2] = new Vector3(thumb.GetComponent<Transform>().position.x, thumb.GetComponent<Transform>().position.y, thumb.GetComponent<Transform>().position.z);
+        pointsToCheck[3] = new Vector3(pinky.GetComponent<Transform>().position.x, pinky.GetComponent<Transform>().position.y, pinky.GetComponent<Transform>().position.z);
        
         for( int i = 0; i < 4; i++ ){
             if(areaCollider.bounds.Contains(pointsToCheck[i]))
             {
-                //var color = area.GetComponent<Renderer>().material.color;
-                //area.GetComponent<Renderer>().material.color = new Color(color.r, color.g, color.b, 0.2f);
-                area.GetComponent<Renderer>().enabled = true;
+                if(greatOutline == false){
+                    area.GetComponent<Renderer>().enabled = true;
+                }
+                else{
+                    area.GetComponent<Renderer>().enabled = true;
+                    leave.Play();
+                }
+                
 
             }
             else
             {
-                //var color = area.GetComponent<Renderer>().material.color;
-                area.GetComponent<Renderer>().enabled = false;
-                //area.GetComponent<Renderer>().material.color = new Color(color.r, color.g, color.b, 0.0f);
+                if(greatOutline == false){
+                    area.GetComponent<Renderer>().enabled = false;
+                }
+                else{
+                    area.GetComponent<Renderer>().enabled = true;
+                }
             }
         }
     }
