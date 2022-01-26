@@ -19,7 +19,9 @@ public class OutlineHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        if(greatOutline == false){
+            this.gameObject.GetComponent<Renderer>().enabled = false;
+        }
     }
 
     // Update is called once per frame
@@ -39,25 +41,20 @@ public class OutlineHandler : MonoBehaviour
         pointsToCheck[3] = new Vector3(pinky.GetComponent<Transform>().position.x, pinky.GetComponent<Transform>().position.y, pinky.GetComponent<Transform>().position.z);
        
         for( int i = 0; i < 4; i++ ){
+            print(i);
             if(areaCollider.bounds.Contains(pointsToCheck[i]))
             {
                 if(greatOutline == false){
                     area.GetComponent<Renderer>().enabled = true;
                 }
                 else{
-                    area.GetComponent<Renderer>().enabled = true;
                     leave.Play();
                 }
-                
-
             }
             else
             {
                 if(greatOutline == false){
                     area.GetComponent<Renderer>().enabled = false;
-                }
-                else{
-                    area.GetComponent<Renderer>().enabled = true;
                 }
             }
         }
