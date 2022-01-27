@@ -41,7 +41,6 @@ public class OutlineHandler : MonoBehaviour
         pointsToCheck[3] = new Vector3(pinky.GetComponent<Transform>().position.x, pinky.GetComponent<Transform>().position.y, pinky.GetComponent<Transform>().position.z);
        
         for( int i = 0; i < 4; i++ ){
-            print(i);
             if(areaCollider.bounds.Contains(pointsToCheck[i]))
             {
                 if(greatOutline == false){
@@ -55,7 +54,8 @@ public class OutlineHandler : MonoBehaviour
             {
                 if(greatOutline == false){
                     area.GetComponent<Renderer>().enabled = false;
-                }
+                }               
+                
             }
         }
     }

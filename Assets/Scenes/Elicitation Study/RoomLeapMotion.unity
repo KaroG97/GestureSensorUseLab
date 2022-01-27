@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &60813338
 Transform:
   m_ObjectHideFlags: 0
@@ -321,6 +321,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: RolleHintenLinks
       objectReference: {fileID: 0}
+    - target: {fileID: -1148601475463958874, guid: 63a5959ea2e4d544591d00f1970fb8b1,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -6060480002983507973, guid: 63a5959ea2e4d544591d00f1970fb8b1,
+        type: 3}
     - target: {fileID: -462695232904441278, guid: 63a5959ea2e4d544591d00f1970fb8b1,
         type: 3}
       propertyPath: m_Name
@@ -1160,7 +1166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.81421614, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1406,7 +1412,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 1, g: 0, b: 0, a: 0.39215687}
+    m_SelectedColor: {r: 0, g: 0.81568635, b: 1, a: 0.39215687}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1437,7 +1443,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 641943733}
+      - m_Target: {fileID: 1708525022}
         m_MethodName: handleClick
         m_Mode: 1
         m_Arguments:
@@ -1832,7 +1838,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 1, g: 0, b: 0, a: 0.39215687}
+    m_SelectedColor: {r: 0, g: 0.81568635, b: 1, a: 0.39215687}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1863,7 +1869,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 759107301}
+      - m_Target: {fileID: 1708525022}
         m_MethodName: handleClick
         m_Mode: 1
         m_Arguments:
@@ -2019,7 +2025,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &786151482
 Transform:
   m_ObjectHideFlags: 0
@@ -3443,7 +3449,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &994370361
 Transform:
   m_ObjectHideFlags: 0
@@ -3575,6 +3581,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f74f66bf584b6b4e91a68aa3f986a55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  corner1: {fileID: 994370360}
+  corner2: {fileID: 60813337}
+  corner3: {fileID: 1168162058}
+  corner4: {fileID: 1157378432}
+  corner5: {fileID: 1315915480}
+  corner6: {fileID: 1580769046}
+  corner7: {fileID: 786151481}
+  corner8: {fileID: 1138583917}
 --- !u!65 &1030506148
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8820,7 +8834,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1138583918
 Transform:
   m_ObjectHideFlags: 0
@@ -8913,7 +8927,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1157378433
 Transform:
   m_ObjectHideFlags: 0
@@ -9006,7 +9020,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1168162059
 Transform:
   m_ObjectHideFlags: 0
@@ -9188,7 +9202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dcb01d2e4707fe4e9a19040e7c9dc37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enter: {fileID: 0}
+  enter: {fileID: 1233530503}
   leave: {fileID: 1233530503}
   greatOutline: 1
   wrist: {fileID: 1850351166}
@@ -9709,7 +9723,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1253532630}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
@@ -9781,7 +9795,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1315915481
 Transform:
   m_ObjectHideFlags: 0
@@ -10114,7 +10128,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 1, g: 0, b: 0, a: 0.39215687}
+    m_SelectedColor: {r: 0, g: 0.81568635, b: 1, a: 0.39215687}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -10145,7 +10159,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1452713357}
+      - m_Target: {fileID: 1708525022}
         m_MethodName: handleClick
         m_Mode: 1
         m_Arguments:
@@ -10794,7 +10808,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1580769047
 Transform:
   m_ObjectHideFlags: 0
@@ -10939,7 +10953,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 8e4fff47bd8652148aaf393cf8c77169,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e4fff47bd8652148aaf393cf8c77169, type: 3}
@@ -11105,7 +11119,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 1, g: 0, b: 0, a: 0.39215687}
+    m_SelectedColor: {r: 0, g: 0.81568635, b: 1, a: 0.39215687}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -11961,7 +11975,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 1, g: 0, b: 0, a: 0.39215687}
+    m_SelectedColor: {r: 0, g: 0.81568635, b: 1, a: 0.39215687}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -11992,7 +12006,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2097129442}
+      - m_Target: {fileID: 1708525022}
         m_MethodName: handleClick
         m_Mode: 1
         m_Arguments:

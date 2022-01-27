@@ -130,7 +130,7 @@ public class LeapPosToCSV : MonoBehaviour
     // Update is called once per frame
     void Update()
     {    
-        if(Input.GetKey("p"))
+        if(Input.GetKeyDown("p"))
         {
             writeCSV();
         }

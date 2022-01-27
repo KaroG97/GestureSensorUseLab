@@ -19,14 +19,14 @@ public class Rotation : MonoBehaviour
 
     // Define cube corners
 
-    private static GameObject corner1;
-    private static GameObject corner2;
-    private static GameObject corner3;
-    private static GameObject corner4;
-    private static GameObject corner5;
-    private static GameObject corner6;
-    private static GameObject corner7;
-    private static GameObject corner8;
+    public  GameObject corner1;
+    public  GameObject corner2;
+    public  GameObject corner3;
+    public  GameObject corner4;
+    public  GameObject corner5;
+    public  GameObject corner6;
+    public  GameObject corner7;
+    public  GameObject corner8;
 
     private static GameObject[] corners;
 
@@ -82,14 +82,14 @@ public class Rotation : MonoBehaviour
         corners = new GameObject[8];
         activeCorner = 0;
 
-        corners[0] = GameObject.Find("corner1");
-        corners[1] = GameObject.Find("corner2");
-        corners[2] = GameObject.Find("corner3");
-        corners[3] = GameObject.Find("corner4");
-        corners[4] = GameObject.Find("corner5");
-        corners[5] = GameObject.Find("corner6");
-        corners[6] = GameObject.Find("corner7");
-        corners[7] = GameObject.Find("corner8");
+        corners[0] = corner1;
+        corners[1] = corner2;
+        corners[2] = corner3;
+        corners[3] = corner4;
+        corners[4] = corner5;
+        corners[5] = corner6;
+        corners[6] = corner7;
+        corners[7] = corner8;
 
         // Fill cutting plane gameobjects
 
@@ -104,12 +104,16 @@ public class Rotation : MonoBehaviour
 
     public void deselectAllCorners(){
         for(int i = 0; i < 8; i++){
+            corners[i].gameObject.SetActive(true);
             corners[i].GetComponent<Renderer>().material.SetColor("_Color", Color.white);
         }
     }
 
     public void deselectAllPlanes(){
         print("Deselect all planes!");
+        cuttingPlaneX.gameObject.SetActive(true);
+        cuttingPlaneY.gameObject.SetActive(true);
+        cuttingPlaneZ.gameObject.SetActive(true);
         cuttingPlaneXRenderer.material.SetColor("_Color", Color.white);
         cuttingPlaneYRenderer.material.SetColor("_Color", Color.white);
         cuttingPlaneZRenderer.material.SetColor("_Color", Color.white);
@@ -119,7 +123,10 @@ public class Rotation : MonoBehaviour
         mode = "rotation";
         dimension = "x";
         textDimension.text = dimension; 
-        textMode.text = mode;
+        textMode.text = mode;        
+        cuttingPlaneX.gameObject.SetActive(true);
+        cuttingPlaneY.gameObject.SetActive(false);
+        cuttingPlaneZ.gameObject.SetActive(false);
     }
 
     public static void checkPosition(){
@@ -162,6 +169,7 @@ public class Rotation : MonoBehaviour
             mode = "translation";
             print("Switched to translation mode!");
             textMode.text = "translation";
+            deselectAllCorners();
         }
         else if(Input.GetKeyDown("c")){
             mode = "corner";
@@ -174,16 +182,25 @@ public class Rotation : MonoBehaviour
             dimension = "x";
             print("Switched to dimension x!");
             textDimension.text = dimension;
+            cuttingPlaneX.gameObject.SetActive(true);
+            cuttingPlaneY.gameObject.SetActive(false);
+            cuttingPlaneZ.gameObject.SetActive(false);
         }
         else if(Input.GetKeyDown("y")){
             dimension = "y";
             print("Switched to dimension y!");
             textDimension.text = dimension;
+            cuttingPlaneX.gameObject.SetActive(false);
+            cuttingPlaneY.gameObject.SetActive(true);
+            cuttingPlaneZ.gameObject.SetActive(false);
         }
         else if(Input.GetKeyDown("z")){
             dimension = "z";
             print("Switched to dimension z!");
             textDimension.text = dimension;
+            cuttingPlaneX.gameObject.SetActive(false);
+            cuttingPlaneY.gameObject.SetActive(false);
+            cuttingPlaneZ.gameObject.SetActive(true);
         }
 
         // Select cutting planes
