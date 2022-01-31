@@ -10,10 +10,10 @@ public class OutlineHandler : MonoBehaviour
 
     public bool greatOutline  = false;
 
-    public GameObject wrist;
-    public GameObject index;
-    public GameObject thumb;
-    public GameObject pinky;
+    private GameObject wrist;
+    private GameObject index;
+    private GameObject thumb;
+    private GameObject pinky;
 
 
     // Start is called before the first frame update
@@ -22,6 +22,12 @@ public class OutlineHandler : MonoBehaviour
         if(greatOutline == false){
             this.gameObject.GetComponent<Renderer>().enabled = false;
         }
+
+        wrist = transform.parent.gameObject.GetComponent<LeapPosToCSV>().wrist;
+        index = transform.parent.gameObject.GetComponent<LeapPosToCSV>().index;
+        thumb = transform.parent.gameObject.GetComponent<LeapPosToCSV>().thumb;
+        pinky = transform.parent.gameObject.GetComponent<LeapPosToCSV>().pinky; 
+
     }
 
     // Update is called once per frame
@@ -47,7 +53,9 @@ public class OutlineHandler : MonoBehaviour
                     area.GetComponent<Renderer>().enabled = true;
                 }
                 else{
-                    leave.Play();
+                    if(leave != null){
+                        leave.Play();
+                    }
                 }
             }
             else
