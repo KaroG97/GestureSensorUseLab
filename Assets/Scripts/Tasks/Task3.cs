@@ -41,4 +41,8 @@ public class Task3 : MonoBehaviour
             timeBetweenImages = 4.0f;
         }
     }
+
+    public void onEnable(){
+        Start();
+    }
 }

@@ -70,16 +70,16 @@ public class DemonstrationUI : MonoBehaviour
            for(int i = 0; i < 5; i++){
                buttonList[i].gameObject.SetActive(true);
            }
-           dummy.active = false;
-           target.active = false;
+           dummy.SetActive(false);
+           target.SetActive(false);
            buttonList[activeButtonIndex].onClick.Invoke();
            textMode.text = mode;
        } 
        else if(Input.GetKeyDown("t"))
        {
            mode = "target";
-           dummy.active = true;
-           target.active = true;
+           dummy.SetActive(true);
+           target.SetActive(true);
            for(int i = 0; i < 5; i++){
                buttonList[i].gameObject.SetActive(false);
            }

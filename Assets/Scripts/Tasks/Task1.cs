@@ -143,4 +143,21 @@ public class Task1 : MonoBehaviour
             }
         }       
     }    
+    
+    public void onEnable(){
+        Start();
+    }
+
+    public void onDisable(){
+        for(int i = 0; i < sensor.transform.childCount; i++){   
+            if(sensor.transform.GetChild(i).name != "Outline"){
+                sensor.transform.GetChild(i).gameObject.SetActive(false);
+                sensor.transform.GetChild(i).GetComponent<Renderer>().enabled = false;
+            }
+            else{
+                sensor.transform.GetChild(i).gameObject.SetActive(true);
+                sensor.transform.GetChild(i).GetComponent<Renderer>().enabled = true;
+            }            
+        }
+    }
 }

@@ -37,4 +37,8 @@ public class Task2 : MonoBehaviour
             timeBetweenButtonPress = 1.5f;
         }        
     }
+
+    public void onEnable(){
+        Start();
+    }
 }
