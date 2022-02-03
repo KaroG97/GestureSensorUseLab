@@ -15,28 +15,45 @@ public class OutlineHandler : MonoBehaviour
     private GameObject thumb;
     private GameObject pinky;
 
+    private string currentTask;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        if(greatOutline == false){
-            this.gameObject.GetComponent<Renderer>().enabled = false;
-        }
+        currentTask = "1";
 
-        wrist = transform.parent.gameObject.GetComponent<LeapPosToCSV>().wrist;
-        index = transform.parent.gameObject.GetComponent<LeapPosToCSV>().index;
-        thumb = transform.parent.gameObject.GetComponent<LeapPosToCSV>().thumb;
-        pinky = transform.parent.gameObject.GetComponent<LeapPosToCSV>().pinky; 
-
+        
+            
+            if(greatOutline == false){
+                
+                if(currentTask != "1"){  
+                    this.gameObject.GetComponent<Renderer>().enabled = false;
+                }
+            }
+            wrist = transform.parent.gameObject.GetComponent<LeapPosToCSV>().wrist;
+            index = transform.parent.gameObject.GetComponent<LeapPosToCSV>().index;
+            thumb = transform.parent.gameObject.GetComponent<LeapPosToCSV>().thumb;
+            pinky = transform.parent.gameObject.GetComponent<LeapPosToCSV>().pinky; 
+        
     }
+
 
     // Update is called once per frame
     void Update()
     {
+        currentTask = GameObject.Find("Monitor").GetComponent<ElicitationDisplay>().activeTask;
+        if(greatOutline == false){
+                
+                if(currentTask != "1"){  
+                    this.gameObject.GetComponent<Renderer>().enabled = false;
+                }
+            }
         checkCollision(this.gameObject, wrist, index, thumb, pinky);
     }
 
     void checkCollision(GameObject area, GameObject wrist, GameObject index, GameObject thumb, GameObject pinky){
+        
         Vector3[] pointsToCheck = new Vector3[4];
 
         Collider areaCollider = area.GetComponent<Collider>();
@@ -54,15 +71,17 @@ public class OutlineHandler : MonoBehaviour
                 }
                 else{
                     if(leave != null){
-                        leave.Play();
+                       // leave.Play();
                     }
                 }
             }
             else
-            {
-                if(greatOutline == false){
-                    area.GetComponent<Renderer>().enabled = false;
-                }               
+            {                
+                if(currentTask != "1"){  
+                    if(greatOutline == false){
+                        area.GetComponent<Renderer>().enabled = false;
+                    }   
+                }            
                 
             }
         }
