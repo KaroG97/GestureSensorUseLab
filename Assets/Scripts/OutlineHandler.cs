@@ -21,20 +21,16 @@ public class OutlineHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentTask = "1";
-
-        
+        if(greatOutline == false){
             
-            if(greatOutline == false){
-                
-                if(currentTask != "1"){  
-                    this.gameObject.GetComponent<Renderer>().enabled = false;
-                }
+            if(currentTask != "1"){  
+                this.gameObject.GetComponent<Renderer>().enabled = false;
             }
-            wrist = transform.parent.gameObject.GetComponent<LeapPosToCSV>().wrist;
-            index = transform.parent.gameObject.GetComponent<LeapPosToCSV>().index;
-            thumb = transform.parent.gameObject.GetComponent<LeapPosToCSV>().thumb;
-            pinky = transform.parent.gameObject.GetComponent<LeapPosToCSV>().pinky; 
+        }
+        wrist = transform.parent.gameObject.GetComponent<LeapPosToCSV>().wrist;
+        index = transform.parent.gameObject.GetComponent<LeapPosToCSV>().index;
+        thumb = transform.parent.gameObject.GetComponent<LeapPosToCSV>().thumb;
+        pinky = transform.parent.gameObject.GetComponent<LeapPosToCSV>().pinky; 
         
     }
 
@@ -43,6 +39,7 @@ public class OutlineHandler : MonoBehaviour
     void Update()
     {
         currentTask = GameObject.Find("Monitor").GetComponent<ElicitationDisplay>().activeTask;
+        print(currentTask); 
         if(greatOutline == false){
                 
                 if(currentTask != "1"){  
