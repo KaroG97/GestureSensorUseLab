@@ -40,6 +40,14 @@ public class ElicitationDisplay : MonoBehaviour
             beginTask(3);
             tasks[2].GetComponent<Task3>().enabled = true;
             tasks[2].GetComponent<Task3>().onEnable();
+        }    
+        else if(Input.GetKeyDown("4"))
+        {
+            activeTask ="4";
+            endAllTasks();
+            beginTask(4);
+            tasks[3].GetComponent<Task4>().enabled = true;
+            tasks[3].GetComponent<Task4>().onEnable();
         }        
     }
 
@@ -48,10 +56,10 @@ public class ElicitationDisplay : MonoBehaviour
             tasks[i].SetActive(false); 
             if(i == 0){
                 tasks[i].GetComponent<Task1>().enabled = false;
-                tasks[i].GetComponent<Task1>().onDisable();
+                //tasks[i].GetComponent<Task1>().onDisable();
             }
             if(i == 1){
-                tasks[i].GetComponent<Task2>().enabled = false;
+                tasks[i].GetComponent<Task2>().enabled = false;                
             }
             if(i == 2){
                 tasks[i].GetComponent<Task3>().enabled = false;

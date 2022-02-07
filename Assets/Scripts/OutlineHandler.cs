@@ -42,10 +42,6 @@ public class OutlineHandler : MonoBehaviour
 
         Collider areaCollider = area.GetComponent<Collider>();
 
-        /*if(greatOutline == true && currentTask != "1"){
-            area.GetComponent<Renderer>().enabled = true;
-        }*/
-
         pointsToCheck[0] = new Vector3(wrist.GetComponent<Transform>().position.x, wrist.GetComponent<Transform>().position.y, wrist.GetComponent<Transform>().position.z);
         pointsToCheck[1] = new Vector3(index.GetComponent<Transform>().position.x, index.GetComponent<Transform>().position.y, index.GetComponent<Transform>().position.z);
         pointsToCheck[2] = new Vector3(thumb.GetComponent<Transform>().position.x, thumb.GetComponent<Transform>().position.y, thumb.GetComponent<Transform>().position.z);
@@ -60,7 +56,7 @@ public class OutlineHandler : MonoBehaviour
                 else{
                     area.GetComponent<Renderer>().enabled = true;
                     if(leave != null){
-                       // leave.Play();
+                       leave.Play();
                     }
                 }
             }
@@ -77,10 +73,12 @@ public class OutlineHandler : MonoBehaviour
 
     public void reloadInitialSensor(){
         currentTask = GameObject.Find("Monitor").GetComponent<ElicitationDisplay>().activeTask;
-        if(greatOutline == false){   
+        if(this.greatOutline == false){ 
+                this.gameObject.SetActive(true); 
                 this.gameObject.GetComponent<Renderer>().enabled = false;
         }
-        else{
+        else if(this.greatOutline == true && currentTask != "1"){
+            this.gameObject.SetActive(true);
             this.gameObject.GetComponent<Renderer>().enabled = true;
         }
     }
