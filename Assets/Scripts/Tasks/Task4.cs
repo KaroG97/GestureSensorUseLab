@@ -26,9 +26,6 @@ public class Task4 : MonoBehaviour
         canvasRectWorld = GetWorldSapceRect(canvasRect);
 
         dummyOrigin =  dummy.transform.position;
-
-        //Vector3[] canvasCorners = new Vector3[4];
-        //canvasRect.GetWorldCorners(canvasCorners);
     }
 
     // Update is called once per frame
@@ -48,27 +45,78 @@ public class Task4 : MonoBehaviour
             roundtime -= Time.deltaTime;
             if(Input.GetKeyDown("return")){
                 print("enter");
-                round ++;
+                if(round == 3){
+                    round = 1;
+                }
+                else{
+                    round ++;
+                }
+                target.GetComponent<Image>().color =  Color.red;
+                dummy.transform.position = dummyOrigin;
                 roundtime = 3.0f;
             }
             else if(round == 1){
                 if(canvasRect.rect.Contains(dummyRect.localPosition)){
                     
                     if(dummyRectWorld.Overlaps(targetRectWorld)){
+                    //if(targetRect.rect.Contains(dummyRect.localPosition)){
                         target.GetComponent<Image>().color =  Color.green;
+                        dummy.transform.position = target.transform.position;
                     }
                     else{
                         target.GetComponent<Image>().color =  Color.red;
-                        dummy.transform.Translate(0.005f,0,0);
-                        dummy.transform.Translate(0,0.005f,0);
+                        dummy.transform.Translate(0.001f,0,0);
+                        dummy.transform.Translate(0,0.001f,0);
                     }
                 }
                 else{                    
-                    dummy.transform.Translate(dummyOrigin);//position.x = dummyOrigin[0];
-                    //dummy.transform.Translate(dummyOrigin);//position.y = dummyOrigin[1];
-                    //dummy.transform.Translate(dummyOrigin);//position.z = dummyOrigin[2];
+                    dummy.transform.position = dummyOrigin;
                     roundtime = 3.0f;
                 }
+            }
+        
+            else if(round == 2){
+                if(canvasRect.rect.Contains(dummyRect.localPosition)){
+                    
+                    if(dummyRectWorld.Overlaps(targetRectWorld)){
+                        target.GetComponent<Image>().color =  Color.green;
+                        dummy.transform.position = target.transform.position;
+                    }
+                    else{
+                        if(dummy.transform.position.x >= target.transform.position.x-0.01){
+                            target.GetComponent<Image>().color =  Color.red;
+                            dummy.transform.Translate(0.001f,0,0);                    
+                        }
+                        else{
+                            target.GetComponent<Image>().color =  Color.red;
+                            dummy.transform.Translate(0,0.001f,0);
+                        }
+                    }
+                }
+            }
+            else if(round == 3){
+                if(canvasRect.rect.Contains(dummyRect.localPosition)){
+                    
+                    if(dummyRectWorld.Overlaps(targetRectWorld)){
+                        target.GetComponent<Image>().color =  Color.green;
+                        dummy.transform.position = target.transform.position;
+                    }
+                    else{
+                        if(dummy.transform.position.x >= target.transform.position.x-0.01){
+                            target.GetComponent<Image>().color =  Color.red;
+                            dummy.transform.position = new Vector3(dummy.transform.position.x-0.01f,  dummy.transform.position.y, dummy.transform.position.z);  
+                            print(dummy.transform.position);                  
+                        }
+                        else{
+                            target.GetComponent<Image>().color =  Color.red;
+                            dummy.transform.position = dummy.transform.position + new Vector3(0,0.01f,0);
+                        }
+                    }
+                }
+            }
+            else{                    
+                dummy.transform.Translate(dummyOrigin);
+                roundtime = 3.0f;
             }
         }
         else{
