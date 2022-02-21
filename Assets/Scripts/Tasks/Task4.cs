@@ -64,9 +64,9 @@ public class Task4 : MonoBehaviour
                     }
                 }
                 else{                    
-                    dummy.transform.position.x = dummyOrigin[0];
-                    dummy.transform.position.y = dummyOrigin[1];
-                    dummy.transform.position.z = dummyOrigin[2];
+                    dummy.transform.Translate(dummyOrigin);//position.x = dummyOrigin[0];
+                    //dummy.transform.Translate(dummyOrigin);//position.y = dummyOrigin[1];
+                    //dummy.transform.Translate(dummyOrigin);//position.z = dummyOrigin[2];
                     roundtime = 3.0f;
                 }
             }
