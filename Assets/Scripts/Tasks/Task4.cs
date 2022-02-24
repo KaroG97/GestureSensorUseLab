@@ -5,147 +5,98 @@ using UnityEngine.UI;
 
 public class Task4 : MonoBehaviour
 {
-    public Image dummy; 
-    public Image target;
 
-    public Vector3 dummyOrigin;
+    public Image dummy;
+    public static Vector3 dummyStartPositionHorizontal;
+    public static Vector3 dummyStartPositionVertical;
 
-    public float roundtime; 
-    public int round;
+    public Image vertical;
+    public Image horizontal;
 
-    private RectTransform canvasRect;
-    private Rect canvasRectWorld;
+    public static string direction;
+    public static string directionDetail;
 
-    // Start is called before the first frame update
+    public static float timePerDirection;
+
+
     void Start()
     {
-        round = 1;
-        roundtime = 3.0f;
-
-        canvasRect  = this.gameObject.GetComponent<RectTransform>();
-        canvasRectWorld = GetWorldSapceRect(canvasRect);
-
-        dummyOrigin =  dummy.transform.position;
+        horizontal.enabled = true;
+        vertical.enabled = false;
+        direction = "horizontal";
+        directionDetail = "right";
+        dummyStartPositionHorizontal = new Vector3(-0.35f,1.2675f,-0.5f);
+        dummyStartPositionVertical = new Vector3(-0.605f, 1.0075f, -0.5f);
+        print("Start position" + dummy.transform.position);
+        dummy.transform.position = dummyStartPositionHorizontal;
+        timePerDirection = 3.0f;
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        RectTransform dummyRect = dummy.GetComponent<RectTransform>();
-        RectTransform targetRect = target.GetComponent<RectTransform>();
-    
-        Rect dummyRectWorld = GetWorldSapceRect(dummyRect);
-        Rect targetRectWorld = GetWorldSapceRect(targetRect);
+        if(Input.GetKeyDown("return")){
+            if(direction == "horizontal"){
+                horizontal.enabled = false;
+                vertical.enabled = true;
+                direction = "vertical";
+                directionDetail = "up";
+                dummy.transform.position = dummyStartPositionVertical;
+            }
+            else{
+                horizontal.enabled = true;
+                vertical.enabled = false;
+                direction = "horizontal";
+                directionDetail = "right";
+                dummy.transform.position = dummyStartPositionHorizontal;
+            }                
+            timePerDirection = 3.0f;
+        }
 
-        Vector3[] dummyCorners = new Vector3[4];
-        dummyRect.GetLocalCorners(dummyCorners);
-
-        if(roundtime > 0){
-            roundtime -= Time.deltaTime;
-            if(Input.GetKeyDown("return")){
-                print("enter");
-                if(round == 3){
-                    round = 1;
+        if(timePerDirection > 0){
+            timePerDirection -= Time.deltaTime;            
+        
+            if(direction == "horizontal" && directionDetail == "right"){
+                if(dummy.transform.position.x > -0.85){                    
+                   dummy.transform.Translate(0.0075f,0,0); 
                 }
                 else{
-                    round ++;
-                }
-                target.GetComponent<Image>().color =  Color.red;
-                dummy.transform.position = dummyOrigin;
-                roundtime = 3.0f;
+                    directionDetail = "left";
+                }                
             }
-            else if(round == 1){
-                if(canvasRect.rect.Contains(dummyRect.localPosition)){
-                    
-                    if(dummyRectWorld.Overlaps(targetRectWorld)){
-                    //if(targetRect.rect.Contains(dummyRect.localPosition)){
-                        target.GetComponent<Image>().color =  Color.green;
-                        dummy.transform.position = target.transform.position;
-                    }
-                    else{
-                        target.GetComponent<Image>().color =  Color.red;
-                        dummy.transform.Translate(0.001f,0,0);
-                        dummy.transform.Translate(0,0.001f,0);
-                    }
+            else if(direction == "horizontal" && directionDetail == "left"){
+                if(dummy.transform.position.x < -0.35){
+                   dummy.transform.Translate(-0.0075f,0,0); 
                 }
-                else{                    
-                    dummy.transform.position = dummyOrigin;
-                    roundtime = 3.0f;
-                }
+                else{
+                    directionDetail = "right";
+                }                
             }
-        
-            else if(round == 2){
-                if(canvasRect.rect.Contains(dummyRect.localPosition)){
-                    
-                    if(dummyRectWorld.Overlaps(targetRectWorld)){
-                        target.GetComponent<Image>().color =  Color.green;
-                        dummy.transform.position = target.transform.position;
-                    }
-                    else{
-                        if(dummy.transform.position.x >= target.transform.position.x-0.01){
-                            target.GetComponent<Image>().color =  Color.red;
-                            dummy.transform.Translate(0.001f,0,0);                    
-                        }
-                        else{
-                            target.GetComponent<Image>().color =  Color.red;
-                            dummy.transform.Translate(0,0.001f,0);
-                        }
-                    }
+            if(direction == "vertical" && directionDetail == "up"){                
+                
+                if(dummy.transform.position.y < 1.51){
+                   dummy.transform.Translate(0,0.0075f,0); 
                 }
+                else{
+                    directionDetail = "down";
+                }                
             }
-            else if(round == 3){
-                if(canvasRect.rect.Contains(dummyRect.localPosition)){
-                    
-                    if(dummyRectWorld.Overlaps(targetRectWorld)){
-                        target.GetComponent<Image>().color =  Color.green;
-                        dummy.transform.position = target.transform.position;
-                    }
-                    else{
-                        if(dummy.transform.position.x >= target.transform.position.x-0.01){
-                            target.GetComponent<Image>().color =  Color.red;
-                            dummy.transform.position = new Vector3(dummy.transform.position.x-0.01f,  dummy.transform.position.y, dummy.transform.position.z);  
-                            print(dummy.transform.position);                  
-                        }
-                        else{
-                            target.GetComponent<Image>().color =  Color.red;
-                            dummy.transform.position = dummy.transform.position + new Vector3(0,0.01f,0);
-                        }
-                    }
+            else if(direction == "vertical" && directionDetail == "down"){                
+                if(dummy.transform.position.y > 1.0075){
+                   dummy.transform.Translate(0,-0.0075f,0); 
                 }
-            }
-            else{                    
-                dummy.transform.Translate(dummyOrigin);
-                roundtime = 3.0f;
+                else{
+                    directionDetail = "up";
+                }                
             }
         }
         else{
-            roundtime = 3.0f;
+            timePerDirection = 3.0f;
         }
-        /*}
-        else{
-            if(Input.GetKeyDown("return")){
-                round ++;
-                roundtime = 3.0f;
-            }
-            else if(round == 1){
-
-            }*/
     }
 
     public void onEnable(){
         Start();
     }
-
-    Rect GetWorldSapceRect(RectTransform rectTransform)
-    {
-        Vector2 sizeDelta = rectTransform.sizeDelta;
-        float rectTransformHeight = sizeDelta.y * rectTransform.lossyScale.y;
-
-        Vector3 position = rectTransform.position;
-
-        return new Rect(position.z - rectTransformHeight / 2f, position.y - rectTransformHeight / 2f, rectTransformHeight, rectTransformHeight);
-    }
-
-    
 }
