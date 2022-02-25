@@ -1869,7 +1869,7 @@ Transform:
   - {fileID: 1731703452}
   - {fileID: 311598602}
   m_Father: {fileID: 1533435392}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &461704878
 MonoBehaviour:
@@ -13435,7 +13435,6 @@ RectTransform:
   - {fileID: 704453192}
   - {fileID: 19034173}
   - {fileID: 2115694072}
-  - {fileID: 1648208728}
   - {fileID: 461704877}
   m_Father: {fileID: 1334144644}
   m_RootOrder: 0
@@ -14271,12 +14270,12 @@ GameObject:
   - component: {fileID: 1648208730}
   - component: {fileID: 1648208729}
   m_Layer: 0
-  m_Name: Dummy
+  m_Name: TranslationCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1648208728
 Transform:
   m_ObjectHideFlags: 0
@@ -14284,12 +14283,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1648208727}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -1.2560742e-15, w: 0.7071068}
-  m_LocalPosition: {x: -520, y: -515, z: -50}
-  m_LocalScale: {x: 15.847959, y: 197.53093, z: 189.12523}
+  m_LocalRotation: {x: -0.00000008940697, y: -0, z: -3.5527137e-15, w: 1}
+  m_LocalPosition: {x: -0.4134759, y: 0.96900547, z: -0.11892092}
+  m_LocalScale: {x: 0.19999991, y: 0.20000002, z: 0.19999988}
   m_Children: []
-  m_Father: {fileID: 1533435392}
-  m_RootOrder: 12
+  m_Father: {fileID: 1553436352}
+  m_RootOrder: 49
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1648208729
 BoxCollider:
@@ -18419,7 +18418,7 @@ Transform:
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 1553436352}
-  m_RootOrder: 49
+  m_RootOrder: 50
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1915732554
 BoxCollider:
@@ -18509,7 +18508,8 @@ MonoBehaviour:
   - {fileID: 19034172}
   - {fileID: 2115694071}
   - {fileID: 461704876}
-  cube: {fileID: 1915732552}
+  Rotationcube: {fileID: 1915732552}
+  Translationcube: {fileID: 1648208727}
   activeTask: 
 --- !u!1 &1932900689
 GameObject:
