@@ -106,8 +106,7 @@ public class Task5 : MonoBehaviour
                         if(paused == 0){
                             if(dummy.transform.position.x >= target.transform.position.x+0.065){
                                 target.GetComponent<Image>().color =  Color.red;
-                                dummy.transform.Translate(0.065f,0,0);  
-                                print(dummy.transform.position);                  
+                                dummy.transform.Translate(0.065f,0,0);           
                             }
                             else{
                                 target.GetComponent<Image>().color =  Color.red;

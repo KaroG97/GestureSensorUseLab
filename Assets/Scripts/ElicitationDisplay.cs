@@ -7,6 +7,9 @@ public class ElicitationDisplay : MonoBehaviour
 
     public GameObject[] tasks;
 
+    public GameObject Rotationcube;
+    public GameObject Translationcube;
+
     public string activeTask;
 
     // Start is called before the first frame update
@@ -56,6 +59,14 @@ public class ElicitationDisplay : MonoBehaviour
             beginTask(5);
             tasks[4].GetComponent<Task5>().enabled = true;
             tasks[4].GetComponent<Task5>().onEnable();
+        } 
+        else if(Input.GetKeyDown("6"))
+        {
+            activeTask ="6";
+            endAllTasks();
+            beginTask(6);
+            tasks[5].GetComponent<Task6>().enabled = true;
+            tasks[5].GetComponent<Task6>().onEnable();
         }       
         else if(Input.GetKeyDown("7"))
         {
@@ -64,10 +75,28 @@ public class ElicitationDisplay : MonoBehaviour
             beginTask(7);
             tasks[6].GetComponent<Task7>().enabled = true;
             tasks[6].GetComponent<Task7>().onEnable();
+        }   
+        else if(Input.GetKeyDown("8"))
+        {
+            activeTask ="8";
+            endAllTasks();
+            beginTask(8);
+            tasks[7].GetComponent<Task8>().enabled = true;
+            tasks[7].GetComponent<Task8>().onEnable();
+        }   
+        else if(Input.GetKeyDown("9"))
+        {
+            activeTask ="9";
+            endAllTasks();
+            beginTask(9);
+            tasks[8].GetComponent<Task9>().enabled = true;
+            tasks[8].GetComponent<Task9>().onEnable();
         }     
     }
 
     void endAllTasks(){
+        Rotationcube.SetActive(false);
+        Translationcube.SetActive(false);
         for(int i = 0; i < tasks.Length; i++){
             tasks[i].SetActive(false); 
             if(i == 0){

@@ -16,8 +16,6 @@ public class Task4 : MonoBehaviour
     public static string direction;
     public static string directionDetail;
 
-    public static float timePerDirection;
-
 
     void Start()
     {
@@ -27,9 +25,8 @@ public class Task4 : MonoBehaviour
         directionDetail = "right";
         dummyStartPositionHorizontal = new Vector3(-0.35f,1.2675f,-0.5f);
         dummyStartPositionVertical = new Vector3(-0.605f, 1.0075f, -0.5f);
-        print("Start position" + dummy.transform.position);
         dummy.transform.position = dummyStartPositionHorizontal;
-        timePerDirection = 3.0f;
+       
     }
 
     // Update is called once per frame
@@ -51,49 +48,42 @@ public class Task4 : MonoBehaviour
                 directionDetail = "right";
                 dummy.transform.position = dummyStartPositionHorizontal;
             }                
-            timePerDirection = 3.0f;
         }
 
-        if(timePerDirection > 0){
-            timePerDirection -= Time.deltaTime;            
         
-            if(direction == "horizontal" && directionDetail == "right"){
-                if(dummy.transform.position.x > -0.85){                    
-                   dummy.transform.Translate(0.0075f,0,0); 
-                }
-                else{
-                    directionDetail = "left";
-                }                
+        if(direction == "horizontal" && directionDetail == "right"){
+            if(dummy.transform.position.x > -0.85){                    
+                dummy.transform.Translate(0.0075f,0,0); 
             }
-            else if(direction == "horizontal" && directionDetail == "left"){
-                if(dummy.transform.position.x < -0.35){
-                   dummy.transform.Translate(-0.0075f,0,0); 
-                }
-                else{
-                    directionDetail = "right";
-                }                
-            }
-            if(direction == "vertical" && directionDetail == "up"){                
-                
-                if(dummy.transform.position.y < 1.51){
-                   dummy.transform.Translate(0,0.0075f,0); 
-                }
-                else{
-                    directionDetail = "down";
-                }                
-            }
-            else if(direction == "vertical" && directionDetail == "down"){                
-                if(dummy.transform.position.y > 1.0075){
-                   dummy.transform.Translate(0,-0.0075f,0); 
-                }
-                else{
-                    directionDetail = "up";
-                }                
-            }
+            else{
+                directionDetail = "left";
+            }                
         }
-        else{
-            timePerDirection = 3.0f;
+        else if(direction == "horizontal" && directionDetail == "left"){
+            if(dummy.transform.position.x < -0.35){
+                dummy.transform.Translate(-0.0075f,0,0); 
+            }
+            else{
+                directionDetail = "right";
+            }                
         }
+        if(direction == "vertical" && directionDetail == "up"){ 
+            if(dummy.transform.position.y < 1.51){
+                dummy.transform.Translate(0,0.0075f,0); 
+            }
+            else{
+                directionDetail = "down";
+            }                
+        }
+        else if(direction == "vertical" && directionDetail == "down"){                
+            if(dummy.transform.position.y > 1.0075){
+                dummy.transform.Translate(0,-0.0075f,0); 
+            }
+            else{
+                directionDetail = "up";
+            }                
+        }
+        
     }
 
     public void onEnable(){

@@ -6,7 +6,7 @@ public class Task7 : MonoBehaviour
 {
 
     public static string dimension;
-    public static GameObject cube;
+    public GameObject cube;
     
     public static float roundtime; 
     public static int round;
@@ -14,7 +14,7 @@ public class Task7 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cube = this.gameObject;
+        cube.SetActive(true);
         round = 1;
         roundtime = 3.0f;
     }
