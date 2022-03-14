@@ -7,7 +7,8 @@ public class Task2 : MonoBehaviour
 {
 
     public Button[] buttonList;
-    int[] order = {5, 1, 3, 7, 9, 2, 4, 6, 8};
+    public int[] order;
+    //int[] order = {5, 1, 3, 7, 9, 2, 4, 6, 8};
     public int activeButtonIndex;
 
     public float timeBetweenButtonPress; 
@@ -28,7 +29,7 @@ public class Task2 : MonoBehaviour
         else{
             int tmp = order[activeButtonIndex] -1 ;
             buttonList[tmp].onClick.Invoke();
-            if(activeButtonIndex == 8){
+            if(activeButtonIndex == order.Length-1){
                 activeButtonIndex = 0;
             }                
             else{

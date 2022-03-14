@@ -15,7 +15,7 @@ public class Task3 : MonoBehaviour
     void Start()
     {
         activeImageIndex = 0;
-        timeBetweenImages = 4.0f;
+        timeBetweenImages = 5.0f;
         imageList[activeImageIndex].transform.parent.gameObject.SetActive(true);
     }
 
@@ -32,13 +32,14 @@ public class Task3 : MonoBehaviour
                 imageList[activeImageIndex].transform.parent.gameObject.SetActive(false);
                 activeImageIndex = 0;
                 imageList[activeImageIndex].transform.parent.gameObject.SetActive(true);
-            }                
-            else{
+            } 
+            // This part of code is only relevant, if different images should be shown                
+            /*else{
                 imageList[activeImageIndex].transform.parent.gameObject.SetActive(false);
                 activeImageIndex++;
                 imageList[activeImageIndex].transform.parent.gameObject.SetActive(true);
-            }
-            timeBetweenImages = 4.0f;
+            }*/
+            timeBetweenImages = 5.0f;
         }
     }
 

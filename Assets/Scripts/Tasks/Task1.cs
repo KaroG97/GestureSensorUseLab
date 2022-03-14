@@ -133,14 +133,14 @@ public class Task1 : MonoBehaviour
                     loadingDiff = 0.5f;
                 }
             }
-            if(round == 6){
+            /*if(round == 6){
                 if(loadingDiff > 0){
                     loadingDiff -= Time.deltaTime;
                 }
                 else{
                     Start();
                 }
-            }
+            }*/
         }       
     }    
     
