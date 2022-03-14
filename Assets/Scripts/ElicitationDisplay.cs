@@ -10,7 +10,11 @@ public class ElicitationDisplay : MonoBehaviour
     public GameObject Rotationcube;
     public GameObject Translationcube;
 
-    public string activeTask;
+    public static string activeTask;
+
+    public string getActiveTask(){
+        return activeTask;
+    }
 
     // Start is called before the first frame update
     void Start()

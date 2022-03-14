@@ -7,7 +7,11 @@ using System.Globalization;
 
 public class LeapPosToCSV : MonoBehaviour
 {
-    string filename = "/LeapHandPosition.csv";
+    public string filename;
+
+    string activeTask;
+
+    public static GameObject monitor;
 
     [System.Serializable]
 
@@ -94,24 +98,23 @@ public class LeapPosToCSV : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        activeTask = monitor.GetComponent<ElicitationDisplay>().getActiveTask();
        
         wristTransform = wrist.GetComponent<Transform>();
         indexTransform = index.GetComponent<Transform>();
         thumbTransform = thumb.GetComponent<Transform>();
         pinkyTransform = pinky.GetComponent<Transform>();
 
-        filename = Application.dataPath + filename;
+        filename = Application.dataPath + "/" + filename + ".csv";
 
         InvokeRepeating("collectPosition", 0.0f, 0.1f);
     }
 
     // Update is called once per frame
     void Update()
-    {    
-        if(Input.GetKeyDown("p"))
-        {
-            writeCSV();
-        }
+    {
+        activeTask = monitor.GetComponent<ElicitationDisplay>().getActiveTask();
     }
 
     public void collectPosition(){
@@ -265,6 +268,7 @@ public class LeapPosToCSV : MonoBehaviour
 
                 tw.WriteLine(
                              currentList.positions[i].timestamp + ";" +
+                             activeTask + ";" +
                              currentList.positions[i].point1 + ";" +
                              currentList.positions[i].absoluteX1 + ";"+
                              currentList.positions[i].absoluteY1 + ";"+
@@ -325,7 +329,7 @@ public class LeapPosToCSV : MonoBehaviour
     public string concatHeader(int numPoints){
         string header = "";
 
-        header += "Timestamp";
+        header += "Timestamp; ActiveTaskNumber";
 
         for(int i = 1; i <= numPoints; i++){
             header += ";Point" + i + ";"+ "X-Absolute ; Y-Absolute ; Z-Absolute;X-Relative ; Y-Relative ; Z-Relative";
@@ -335,5 +339,9 @@ public class LeapPosToCSV : MonoBehaviour
         }
 
         return header;
+    }
+
+    void OnApplicationQuit(){
+        writeCSV();
     }
 }

@@ -1234,6 +1234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e07225bb0ef39d643844552055231e62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  filename: /LeapHandPosition.csv
   currentList:
     positions: []
   wrist: {fileID: 0}
@@ -15248,6 +15249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e07225bb0ef39d643844552055231e62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  filename: Prob1
   currentList:
     positions: []
   wrist: {fileID: 1850351166}
