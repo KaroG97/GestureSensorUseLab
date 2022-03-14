@@ -13,6 +13,8 @@ public class LeapPosToCSV : MonoBehaviour
 
     public static GameObject monitor;
 
+    public ElicitationDisplay elicitationDisplay;
+
     [System.Serializable]
 
     public class LeapHandPosition
@@ -99,14 +101,15 @@ public class LeapPosToCSV : MonoBehaviour
     void Start()
     {
 
-        activeTask = monitor.GetComponent<ElicitationDisplay>().getActiveTask();
-       
+        
+        elicitationDisplay = GameObject.Find("Monitor_Active").GetComponent<ElicitationDisplay>();
+        activeTask = elicitationDisplay.getActiveTask();
         wristTransform = wrist.GetComponent<Transform>();
         indexTransform = index.GetComponent<Transform>();
         thumbTransform = thumb.GetComponent<Transform>();
         pinkyTransform = pinky.GetComponent<Transform>();
 
-        filename = Application.dataPath + "/" + filename + ".csv";
+        filename = Application.dataPath + "/CSV/" + filename + ".csv";
 
         InvokeRepeating("collectPosition", 0.0f, 0.1f);
     }
@@ -114,7 +117,7 @@ public class LeapPosToCSV : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        activeTask = monitor.GetComponent<ElicitationDisplay>().getActiveTask();
+        activeTask = elicitationDisplay.getActiveTask();
     }
 
     public void collectPosition(){

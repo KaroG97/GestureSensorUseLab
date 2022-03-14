@@ -10,7 +10,7 @@ public class ElicitationDisplay : MonoBehaviour
     public GameObject Rotationcube;
     public GameObject Translationcube;
 
-    public static string activeTask;
+    public string activeTask;
 
     public string getActiveTask(){
         return activeTask;
