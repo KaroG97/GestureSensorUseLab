@@ -53,7 +53,7 @@ public class Task4 : MonoBehaviour
         
         if(direction == "horizontal" && directionDetail == "right"){
             if(dummy.transform.position.x > -0.85){                    
-                dummy.transform.Translate(0.0075f,0,0); 
+                dummy.transform.Translate(0.0007f,0,0); 
             }
             else{
                 directionDetail = "left";
@@ -61,7 +61,7 @@ public class Task4 : MonoBehaviour
         }
         else if(direction == "horizontal" && directionDetail == "left"){
             if(dummy.transform.position.x < -0.35){
-                dummy.transform.Translate(-0.0075f,0,0); 
+                dummy.transform.Translate(-0.0007f,0,0); 
             }
             else{
                 directionDetail = "right";
@@ -69,7 +69,7 @@ public class Task4 : MonoBehaviour
         }
         if(direction == "vertical" && directionDetail == "up"){ 
             if(dummy.transform.position.y < 1.51){
-                dummy.transform.Translate(0,0.0075f,0); 
+                dummy.transform.Translate(0,0.0007f,0); 
             }
             else{
                 directionDetail = "down";
@@ -77,7 +77,7 @@ public class Task4 : MonoBehaviour
         }
         else if(direction == "vertical" && directionDetail == "down"){                
             if(dummy.transform.position.y > 1.0075){
-                dummy.transform.Translate(0,-0.0075f,0); 
+                dummy.transform.Translate(0,-0.0007f,0); 
             }
             else{
                 directionDetail = "up";

@@ -32,7 +32,7 @@ public class Task6 : MonoBehaviour
         switch (direction){
             case "bigger": 
                 if(dummy.transform.localScale.x < max.x){
-                    dummy.transform.localScale = dummy.transform.localScale + new Vector3(0.1f,0.1f, 0.0f);
+                    dummy.transform.localScale = dummy.transform.localScale + new Vector3(0.075f,0.075f, 0.0f);
                 }
                 else{
                     direction = "smaller";
@@ -40,7 +40,7 @@ public class Task6 : MonoBehaviour
                 break;
             case "smaller":
                 if(dummy.transform.localScale.x > min.x){
-                    dummy.transform.localScale = dummy.transform.localScale + new Vector3(-0.1f,-0.1f, 0.0f);
+                    dummy.transform.localScale = dummy.transform.localScale + new Vector3(-0.075f,-0.075f, 0.0f);
                 }
                 else{
                     direction = "bigger";

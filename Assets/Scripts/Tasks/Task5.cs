@@ -66,8 +66,8 @@ public class Task5 : MonoBehaviour
                     }
                     else{
                         target.GetComponent<Image>().color =  Color.red;
-                        dummy.transform.Translate(0.01f,0,0);
-                        dummy.transform.Translate(0,0.01f,0);
+                        dummy.transform.Translate(0.001f,0,0);
+                        dummy.transform.Translate(0,0.001f,0);
                     }
                 }
                 else{                    
@@ -86,11 +86,11 @@ public class Task5 : MonoBehaviour
                     else{
                         if(dummy.transform.position.x >= target.transform.position.x+0.01){
                             target.GetComponent<Image>().color =  Color.red;
-                            dummy.transform.Translate(0.01f,0,0);                    
+                            dummy.transform.Translate(0.001f,0,0);                    
                         }
                         else{
                             target.GetComponent<Image>().color =  Color.red;
-                            dummy.transform.Translate(0,0.01f,0);
+                            dummy.transform.Translate(0,0.001f,0);
                         }
                     }
                 }
