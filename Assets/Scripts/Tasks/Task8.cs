@@ -29,13 +29,15 @@ public class Task8 : MonoBehaviour
 
         stepcount = 100.0f;
         steps = difference/stepcount;  
-        time = 3.0f;      
+        time = 5.0f;      
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        difference = calculateDifference();
+        steps = difference/stepcount;
         if(Input.GetKeyDown("return")){ 
             dummy.transform.position = originalPosition;
             time = 3.0f;
@@ -54,7 +56,7 @@ public class Task8 : MonoBehaviour
         }
         else{
             dummy.transform.position = originalPosition;
-            time = 3.0f;
+            time = 5.0f;
         }
     }
 
@@ -68,6 +70,10 @@ public class Task8 : MonoBehaviour
         diff[0] = targetPisition[0] - dummy.transform.position[0];
         diff[1] = targetPisition[1] - dummy.transform.position[1];
         diff[2] = targetPisition[2] - dummy.transform.position[2];
+
+        print(diff[0]);
+        print(diff[1]);
+        print(diff[2]); 
 
         return diff;
     }
