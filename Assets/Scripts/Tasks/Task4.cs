@@ -6,27 +6,29 @@ using UnityEngine.UI;
 public class Task4 : MonoBehaviour
 {
 
-    public Image dummy;
-    public static Vector3 dummyStartPositionHorizontal;
-    public static Vector3 dummyStartPositionVertical;
+    public GameObject verticalParent;
+    public GameObject horizontalParent; 
 
-    public Image vertical;
-    public Image horizontal;
+    public Slider vertical;
+    public Slider horizontal;
 
     public static string direction;
     public static string directionDetail;
 
+    public static bool wholeNumbers; 
+
+    public float timeBetweenSteps;
+
+
 
     void Start()
     {
-        horizontal.enabled = true;
-        vertical.enabled = false;
+        horizontalParent.SetActive(true);
+        verticalParent.SetActive(false);
         direction = "horizontal";
         directionDetail = "right";
-        dummyStartPositionHorizontal = new Vector3(-0.35f,1.2675f,-0.5f);
-        dummyStartPositionVertical = new Vector3(-0.605f, 1.0075f, -0.5f);
-        dummy.transform.position = dummyStartPositionHorizontal;
-       
+        wholeNumbers = false;   
+        timeBetweenSteps = 1.5f;    
     }
 
     // Update is called once per frame
@@ -34,56 +36,120 @@ public class Task4 : MonoBehaviour
     {
 
         if(Input.GetKeyDown("return")){
-            if(direction == "horizontal"){
-                horizontal.enabled = false;
-                vertical.enabled = true;
+            if(direction == "horizontal" && wholeNumbers == false){
+                print("1");
+                horizontalParent.SetActive(false);
+                verticalParent.SetActive(true);
                 direction = "vertical";
                 directionDetail = "up";
-                dummy.transform.position = dummyStartPositionVertical;
             }
-            else{
-                horizontal.enabled = true;
-                vertical.enabled = false;
+            else if(direction == "vertical" && wholeNumbers == false){
+                print("2");
+                horizontalParent.SetActive(false);
+                verticalParent.SetActive(true);
+                direction = "vertical";                
+                directionDetail = "up";
+                wholeNumbers = true;
+                horizontal.wholeNumbers = wholeNumbers;
+                vertical.wholeNumbers = wholeNumbers;
+            }                
+            else if(direction == "horizontal" && wholeNumbers == true){
+                print("3");
+                horizontalParent.SetActive(true);
+                verticalParent.SetActive(false);
+                wholeNumbers = false;
                 direction = "horizontal";
                 directionDetail = "right";
-                dummy.transform.position = dummyStartPositionHorizontal;
-            }                
-        }
-
-        
-        if(direction == "horizontal" && directionDetail == "right"){
-            if(dummy.transform.position.x > -0.85){                    
-                dummy.transform.Translate(0.0007f,0,0); 
+                horizontal.wholeNumbers = wholeNumbers;
+                vertical.wholeNumbers = wholeNumbers;
             }
-            else{
-                directionDetail = "left";
-            }                
-        }
-        else if(direction == "horizontal" && directionDetail == "left"){
-            if(dummy.transform.position.x < -0.35){
-                dummy.transform.Translate(-0.0007f,0,0); 
-            }
-            else{
+            else if(direction == "vertical" && wholeNumbers == true){
+                print("4");
+                horizontalParent.SetActive(true);
+                verticalParent.SetActive(false);
+                direction = "horizontal";
                 directionDetail = "right";
-            }                
-        }
-        if(direction == "vertical" && directionDetail == "up"){ 
-            if(dummy.transform.position.y < 1.51){
-                dummy.transform.Translate(0,0.0007f,0); 
+                wholeNumbers = true;
+                horizontal.wholeNumbers = wholeNumbers;
+                vertical.wholeNumbers = wholeNumbers;
             }
-            else{
-                directionDetail = "down";
-            }                
-        }
-        else if(direction == "vertical" && directionDetail == "down"){                
-            if(dummy.transform.position.y > 1.0075){
-                dummy.transform.Translate(0,-0.0007f,0); 
+        } 
+
+        if(wholeNumbers == true){
+            if(timeBetweenSteps > 0){
+                timeBetweenSteps -= Time.deltaTime;
             }
-            else{
-                directionDetail = "up";
-            }                
-        }
-        
+            else{            
+                if(direction == "horizontal" && directionDetail == "right"){
+                    if(horizontal.value < horizontal.maxValue){
+                    horizontal.value = horizontal.value + 1; 
+                    }
+                    else{
+                        directionDetail = "left";
+                    }
+                }
+                else if(direction == "horizontal" && directionDetail == "left"){
+                    if(horizontal.value > horizontal.minValue){
+                    horizontal.value = horizontal.value - 1; 
+                    }
+                    else{
+                        directionDetail = "right";
+                    }
+                }
+                else if(direction == "vertical" && directionDetail == "up"){
+                    if(vertical.value < vertical.maxValue){
+                    vertical.value = vertical.value + 1; 
+                    }
+                    else{
+                        directionDetail = "down";
+                    }
+                }
+                else if(direction == "vertical" && directionDetail == "down"){
+                    if(vertical.value > vertical.minValue){
+                    vertical.value = vertical.value - 1; 
+                    }
+                    else{
+                        directionDetail = "up";
+                    }
+                }
+                timeBetweenSteps = 1.5f;
+            }
+
+        }   
+        else if(wholeNumbers == false){
+            if(direction == "horizontal" && directionDetail == "right"){
+                if(horizontal.value < horizontal.maxValue){
+                   horizontal.value = horizontal.value + 0.02f; 
+                }
+                else{
+                    directionDetail = "left";
+                }
+            }
+            else if(direction == "horizontal" && directionDetail == "left"){
+                if(horizontal.value > horizontal.minValue){
+                   horizontal.value = horizontal.value - 0.02f; 
+                }
+                else{
+                    directionDetail = "right";
+                }
+            }
+            else if(direction == "vertical" && directionDetail == "up"){
+                if(vertical.value < vertical.maxValue){
+                   vertical.value = vertical.value + 0.02f; 
+                }
+                else{
+                    directionDetail = "down";
+                }
+            }
+            else if(direction == "vertical" && directionDetail == "down"){
+                if(vertical.value > vertical.minValue){
+                   vertical.value = vertical.value - 0.02f; 
+                }
+                else{
+                    directionDetail = "up";
+                }
+            }
+        }    
     }
 
     public void onEnable(){
