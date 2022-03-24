@@ -36,6 +36,11 @@ public class OutlineHandler : MonoBehaviour
     void Update()
     {
         checkCollision(this.gameObject, wrist, index, thumb, pinky);
+
+        if(Input.GetKeyDown("r")){
+            print("reload");
+            reloadInitialSensor();
+        }
     }
 
     void checkCollision(GameObject area, GameObject wrist, GameObject index, GameObject thumb, GameObject pinky){
@@ -49,28 +54,26 @@ public class OutlineHandler : MonoBehaviour
         pointsToCheck[2] = new Vector3(thumb.GetComponent<Transform>().position.x, thumb.GetComponent<Transform>().position.y, thumb.GetComponent<Transform>().position.z);
         pointsToCheck[3] = new Vector3(pinky.GetComponent<Transform>().position.x, pinky.GetComponent<Transform>().position.y, pinky.GetComponent<Transform>().position.z);
        
-        for( int i = 0; i < 4; i++ ){
-            if(areaCollider.bounds.Contains(pointsToCheck[i]))
-            {
-                if(greatOutline == false){
-                    area.GetComponent<Renderer>().enabled = true;
-                }
-                else{
+        /*if(this.greatOutline == true){
+            area.GetComponent<Renderer>().enabled = true;
+        }
+        else{*/
+            for( int i = 0; i < 4; i++ ){
+                if(areaCollider.bounds.Contains(pointsToCheck[i]))
+                {
                     area.GetComponent<Renderer>().enabled = true;
                     if(leave != null){
-                       leave.Play();
-                    }
+                    leave.Play();
+                }
+                else
+                {                
+                    //if(currentTask != "0"){  
+                        area.GetComponent<Renderer>().enabled = false;
+                    //}     
                 }
             }
-            else
-            {                
-                if(currentTask != "1"){  
-                    if(greatOutline == false){
-                        area.GetComponent<Renderer>().enabled = false;
-                    }
-                }     
             }
-        }
+        //}
     }
 
     public void reloadInitialSensor(){
@@ -79,7 +82,7 @@ public class OutlineHandler : MonoBehaviour
                 this.gameObject.SetActive(true); 
                 this.gameObject.GetComponent<Renderer>().enabled = false;
         }
-        else if(this.greatOutline == true && currentTask != "1"){
+        else if(this.greatOutline == true && currentTask != "0"){
             this.gameObject.SetActive(true);
             this.gameObject.GetComponent<Renderer>().enabled = true;
         }
