@@ -53,27 +53,64 @@ public class OutlineHandler : MonoBehaviour
         pointsToCheck[1] = new Vector3(index.GetComponent<Transform>().position.x, index.GetComponent<Transform>().position.y, index.GetComponent<Transform>().position.z);
         pointsToCheck[2] = new Vector3(thumb.GetComponent<Transform>().position.x, thumb.GetComponent<Transform>().position.y, thumb.GetComponent<Transform>().position.z);
         pointsToCheck[3] = new Vector3(pinky.GetComponent<Transform>().position.x, pinky.GetComponent<Transform>().position.y, pinky.GetComponent<Transform>().position.z);
-       
-        /*if(this.greatOutline == true){
-            area.GetComponent<Renderer>().enabled = true;
-        }
-        else{*/
-            for( int i = 0; i < 4; i++ ){
-                if(areaCollider.bounds.Contains(pointsToCheck[i]))
-                {
-                    area.GetComponent<Renderer>().enabled = true;
-                    if(leave != null){
+
+        
+        if(areaCollider.bounds.Contains(pointsToCheck[0]))
+        {
+            if(greatOutline == false){
+                area.GetComponent<Renderer>().enabled = true;
+            }
+            else{
+                area.GetComponent<Renderer>().enabled = true;
+                if(leave != null){
                     leave.Play();
                 }
-                else
-                {                
-                    //if(currentTask != "0"){  
-                        area.GetComponent<Renderer>().enabled = false;
-                    //}     
+            }
+        }
+        else if(areaCollider.bounds.Contains(pointsToCheck[1]))
+        {
+            if(greatOutline == false){
+                area.GetComponent<Renderer>().enabled = true;
+            }
+            else{
+                area.GetComponent<Renderer>().enabled = true;
+                if(leave != null){
+                    leave.Play();
                 }
             }
+        }
+        else if(areaCollider.bounds.Contains(pointsToCheck[2]))
+        {
+            if(greatOutline == false){
+                area.GetComponent<Renderer>().enabled = true;
             }
-        //}
+            else{
+                area.GetComponent<Renderer>().enabled = true;
+                if(leave != null){
+                    leave.Play();
+                }
+            }
+        }
+        else if(areaCollider.bounds.Contains(pointsToCheck[3]))
+        {
+            if(greatOutline == false){
+                area.GetComponent<Renderer>().enabled = true;
+            }
+            else{
+                area.GetComponent<Renderer>().enabled = true;
+                if(leave != null){
+                    leave.Play();
+                }
+            }
+        }
+        else
+        {                
+            if(currentTask != "0"){  
+                if(greatOutline == false){
+                    area.GetComponent<Renderer>().enabled = false;
+                }
+            }     
+        }
     }
 
     public void reloadInitialSensor(){
