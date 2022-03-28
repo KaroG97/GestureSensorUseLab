@@ -29,7 +29,7 @@ public class Task8 : MonoBehaviour
 
         stepcount = 100.0f;
         steps = difference/stepcount;  
-        time = 5.0f;      
+        time = 3.0f;      
 
     }
 
@@ -50,13 +50,13 @@ public class Task8 : MonoBehaviour
                 this.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
             }
             else{
-                dummy.transform.Translate(steps[0], steps[1], steps[2]);
+                dummy.transform.Translate(-steps[0], steps[1], -steps[2]);
                 this.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
             }
         }
         else{
             dummy.transform.position = originalPosition;
-            time = 5.0f;
+            time = 3.0f;
         }
     }
 
