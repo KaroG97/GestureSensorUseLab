@@ -113,7 +113,6 @@ public class ElicitationDisplay : MonoBehaviour
             tasks[i].SetActive(false); 
             if(i == 0){
                 tasks[i].GetComponent<Task1>().enabled = false;
-                //tasks[i].GetComponent<Task1>().onDisable();
             }
             if(i == 2){
                 tasks[i].GetComponent<Task2>().enabled = false;                

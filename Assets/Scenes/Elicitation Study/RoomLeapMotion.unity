@@ -19820,7 +19820,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b03b4afd233575459c4f5562bee18a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensor: {fileID: 1683548907}
+  sensor: {fileID: 1339978318}
   initialisation: 1
   remainingInitTime: 10
   loadingDiff: 1

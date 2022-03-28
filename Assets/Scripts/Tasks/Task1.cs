@@ -52,6 +52,7 @@ public class Task1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if(initialisation == true){
             if(remainingInitTime > 0){
                 loadingCircle.fillAmount = remainingInitTime/2;
