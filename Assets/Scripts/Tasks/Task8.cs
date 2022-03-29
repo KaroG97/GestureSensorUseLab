@@ -7,7 +7,7 @@ public class Task8 : MonoBehaviour
 
     public GameObject dummy;
     public static Vector3 originalPosition;
-    public static Vector3 targetPisition;
+    public static Vector3 targetPosition;
 
     public static Collider targetCollider;
 
@@ -21,27 +21,34 @@ public class Task8 : MonoBehaviour
     void Start()
     {
         dummy.SetActive(true);
-        originalPosition = dummy.transform.position;
-        print("Start " + originalPosition);
-        targetCollider = this.gameObject.GetComponent<Collider>();
-        targetPisition = this.gameObject.transform.position;
-        difference = calculateDifference();
 
-        stepcount = 100.0f;
-        steps = difference/stepcount;  
-        time = 3.0f;      
+        //Store original dummy position to move dummy to origin if time is up
+        originalPosition = dummy.transform.localPosition;
+        //Find the position of the target Cube
+        targetCollider = this.gameObject.GetComponent<Collider>();
+        targetPosition = this.gameObject.transform.localPosition;
+        //Calculate the initial distance between dummy and target
+        difference = calculateDifference();
+        //Define a stepsize using the distance divided by a stepcount
+        stepcount = 50.0f;
+        steps = difference/stepcount;
+        //Define target time
+        time = 5.0f;      
 
     }
 
-    // Update is called once per frame
     void Update()
     {
+        //Recalculate distance between dummy and target and the resulting steps
         difference = calculateDifference();
         steps = difference/stepcount;
+
+        //Restore original dummy position, if enter key is down
         if(Input.GetKeyDown("return")){ 
-            dummy.transform.position = originalPosition;
-            time = 3.0f;
+            dummy.transform.localPosition = originalPosition;
+            time = 5.0f;
         }
+
 
         if(time > 0){
             time -= Time.deltaTime;
@@ -50,13 +57,14 @@ public class Task8 : MonoBehaviour
                 this.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
             }
             else{
-                dummy.transform.Translate(-steps[0], steps[1], -steps[2]);
+                dummy.transform.localPosition = new Vector3(dummy.transform.localPosition[0]+steps[0], dummy.transform.localPosition[1]+steps[1], dummy.transform.localPosition[2]+steps[2]);
                 this.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
             }
         }
+        //Restore original dummy position, if time is up and restart timer
         else{
-            dummy.transform.position = originalPosition;
-            time = 3.0f;
+            dummy.transform.localPosition = originalPosition;
+            time = 5.0f;
         }
     }
 
@@ -67,14 +75,9 @@ public class Task8 : MonoBehaviour
     Vector3 calculateDifference(){
         Vector3 diff = new Vector3();
 
-        diff[0] = targetPisition[0] - dummy.transform.position[0];
-        diff[1] = targetPisition[1] - dummy.transform.position[1];
-        diff[2] = targetPisition[2] - dummy.transform.position[2];
-
-        print(diff[0]);
-        print(diff[1]);
-        print(diff[2]); 
-
+        diff[0] = targetPosition[0] - dummy.transform.localPosition[0];
+        diff[1] = targetPosition[1] - dummy.transform.localPosition[1];
+        diff[2] = targetPosition[2] - dummy.transform.localPosition[2];
         return diff;
     }
 
