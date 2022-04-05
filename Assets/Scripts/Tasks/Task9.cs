@@ -41,7 +41,7 @@ public class Task9 : MonoBehaviour
             
             if(round == 1  && direction == "up"){
                 cuttingPlaneXRenderer.material.SetColor("_Color", Color.red);
-                if(cuttingPlaneX.transform.position.x < -0.589){
+                if(cuttingPlaneX.transform.position.x < 0.0024){
                     cuttingPlaneX.transform.Translate(0.001f,0,0);
                 }
                 else{
@@ -50,16 +50,16 @@ public class Task9 : MonoBehaviour
             }
             else if(round == 1  && direction == "down"){
                 cuttingPlaneXRenderer.material.SetColor("_Color", Color.red);
-                if(cuttingPlaneX.transform.position.x > -0.62){
+                if(cuttingPlaneX.transform.position.x > -0.0033){
                     cuttingPlaneX.transform.Translate(-0.001f,0,0);
                 }
                 else{
                     direction = "up";
                 }               
             }
-            if(round == 2  && direction == "up"){
+            if(round == 2  && direction == "up"){            
                 cuttingPlaneYRenderer.material.SetColor("_Color", Color.red);
-                if(cuttingPlaneY.transform.position.y < 1.3){
+                if(cuttingPlaneY.transform.position.y < 1.7){
                     cuttingPlaneY.transform.Translate(0,0.001f,0);
                 }
                 else{
@@ -68,7 +68,7 @@ public class Task9 : MonoBehaviour
             }
             else if(round == 2  && direction == "down"){
                 cuttingPlaneYRenderer.material.SetColor("_Color", Color.red);
-                if(cuttingPlaneY.transform.position.y > 1.146){
+                if(cuttingPlaneY.transform.position.y > 1.49){
                     cuttingPlaneY.transform.Translate(0,-0.001f,0);
                 }
                 else{
@@ -77,7 +77,7 @@ public class Task9 : MonoBehaviour
             }
             if(round == 3  && direction == "up"){
                 cuttingPlaneZRenderer.material.SetColor("_Color", Color.red);
-                if(cuttingPlaneZ.transform.position.z < -0.12){
+                if(cuttingPlaneZ.transform.position.z < 0.03){
                     cuttingPlaneZ.transform.Translate(0,0,0.001f);
                 }
                 else{
@@ -85,8 +85,10 @@ public class Task9 : MonoBehaviour
                 }               
             }
             else if(round == 3  && direction == "down"){
+                
+                print(cuttingPlaneZ.transform.position.z);
                 cuttingPlaneZRenderer.material.SetColor("_Color", Color.red);
-                if(cuttingPlaneZ.transform.position.z > -0.1535){
+                if(cuttingPlaneZ.transform.position.z > 0.01){
                     cuttingPlaneZ.transform.Translate(0,0,-0.001f);
                 }
                 else{

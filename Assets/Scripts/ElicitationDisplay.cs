@@ -125,7 +125,7 @@ public class ElicitationDisplay : MonoBehaviour
 
     void beginTask(int taskIndex){
         tasks[taskIndex].SetActive(true);
-        for(int i = 0; i < GameObject.Find("sensorNeu").transform.childCount; i++){
+        for(int i = 0; i < GameObject.Find("sensorNeu").transform.childCount-2; i++){
             GameObject.Find("sensorNeu").transform.GetChild(i).GetComponent<Renderer>().enabled = false;
             GameObject.Find("sensorNeu").transform.GetChild(i).GetComponent<OutlineHandler>().reloadInitialSensor();
         }
