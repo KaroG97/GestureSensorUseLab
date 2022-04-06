@@ -76,8 +76,9 @@ public class Task9 : MonoBehaviour
                 }               
             }
             if(round == 3  && direction == "up"){
+                print(cuttingPlaneZ.transform.position.z);
                 cuttingPlaneZRenderer.material.SetColor("_Color", Color.red);
-                if(cuttingPlaneZ.transform.position.z < 0.03){
+                if(cuttingPlaneZ.transform.position.z < 0.297){
                     cuttingPlaneZ.transform.Translate(0,0,0.001f);
                 }
                 else{
@@ -86,9 +87,8 @@ public class Task9 : MonoBehaviour
             }
             else if(round == 3  && direction == "down"){
                 
-                print(cuttingPlaneZ.transform.position.z);
                 cuttingPlaneZRenderer.material.SetColor("_Color", Color.red);
-                if(cuttingPlaneZ.transform.position.z > 0.01){
+                if(cuttingPlaneZ.transform.position.z > 0.2915){
                     cuttingPlaneZ.transform.Translate(0,0,-0.001f);
                 }
                 else{
