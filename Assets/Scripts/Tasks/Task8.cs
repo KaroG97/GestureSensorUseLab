@@ -21,7 +21,6 @@ public class Task8 : MonoBehaviour
     void Start()
     {
         dummy.SetActive(true);
-
         //Store original dummy position to move dummy to origin if time is up
         originalPosition = dummy.transform.localPosition;
         //Find the position of the target Cube
@@ -33,8 +32,7 @@ public class Task8 : MonoBehaviour
         stepcount = 50.0f;
         steps = difference/stepcount;
         //Define target time
-        time = 5.0f;      
-
+        time = 5.0f; 
     }
 
     void Update()
@@ -52,13 +50,14 @@ public class Task8 : MonoBehaviour
 
         if(time > 0){
             time -= Time.deltaTime;
-        
-            if(targetCollider.bounds.Contains(dummy.transform.position)){
-                this.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
-            }
-            else{
-                dummy.transform.localPosition = new Vector3(dummy.transform.localPosition[0]+steps[0], dummy.transform.localPosition[1]+steps[1], dummy.transform.localPosition[2]+steps[2]);
-                this.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
+            if(time < 4.0f){
+                if(targetCollider.bounds.Contains(dummy.transform.position)){
+                    this.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
+                }
+                else{
+                    dummy.transform.localPosition = new Vector3(dummy.transform.localPosition[0]+steps[0], dummy.transform.localPosition[1]+steps[1], dummy.transform.localPosition[2]+steps[2]);
+                    this.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
+                }
             }
         }
         //Restore original dummy position, if time is up and restart timer

@@ -80,6 +80,7 @@ public class Task5 : MonoBehaviour
                 if(canvasRect.rect.Contains(dummyRect.localPosition)){
                     
                     if(dummyRectWorld.Overlaps(targetRectWorld)){
+                        print("OV");
                         target.GetComponent<Image>().color =  Color.green;
                         dummy.transform.position = target.transform.position;
                     }

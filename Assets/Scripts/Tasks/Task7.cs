@@ -36,27 +36,27 @@ public class Task7 : MonoBehaviour
             roundtime = roundtime -= Time.deltaTime;
             if(round == 1){
                 // + x
-                cube.transform.Rotate(1,0,0);
+                cube.transform.Rotate(0.5f,0,0);
             }
             else if(round == 2){
                 // - x
-                cube.transform.Rotate(-1,0,0);
+                cube.transform.Rotate(-0.5f,0,0);
             }
             else if(round == 3){
                 // + y
-                cube.transform.Rotate(0,1,0);
+                cube.transform.Rotate(0,0.5f,0);
             }
             else if(round == 4){
                 // - y
-                cube.transform.Rotate(0,-1,0);
+                cube.transform.Rotate(0,-0.5f,0);
             }
             else if(round == 5){
                 // + z
-                cube.transform.Rotate(0,0,1);
+                cube.transform.Rotate(0,0,0.5f);
             }
             else if(round == 6){
                 // - z
-                cube.transform.Rotate(0,0,-1);
+                cube.transform.Rotate(0,0,-0.5f);
             }
         }  
         else{
