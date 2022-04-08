@@ -16,7 +16,7 @@ public class Task6 : MonoBehaviour
     {
         cube.SetActive(true);
         round = 1;
-        roundtime = 5.0f;
+        roundtime = 1.5f;
     }
 
     // Update is called once per frame
@@ -24,7 +24,7 @@ public class Task6 : MonoBehaviour
     {
 
         if(Input.GetKeyDown("return")){
-            if(round == 6){
+            if(round == 2){
                 round = 1;
             }
             else{
@@ -34,7 +34,19 @@ public class Task6 : MonoBehaviour
 
         if(roundtime > 0){
             roundtime = roundtime -= Time.deltaTime;
+        }
+        else{
+            print("kipp");
             if(round == 1){
+                // + x
+                cube.transform.Rotate(45.0f,0,0);
+            }
+            else if(round == 2){
+                // - x
+                cube.transform.Rotate(-45.0f,0,0);
+            }
+        
+            /*if(round == 1){
                 // + x
                 cube.transform.Rotate(0.5f,0,0);
             }
@@ -57,12 +69,10 @@ public class Task6 : MonoBehaviour
             else if(round == 6){
                 // - z
                 cube.transform.Rotate(0,0,-0.5f);
-            }
-        }  
-        else{
+            }*/
             round++;
-            cube.transform.rotation = new Quaternion(0.0f,0.0f,0.0f,0.0f);
-            roundtime = 5.0f;
+            //cube.transform.rotation = new Quaternion(0.0f,0.0f,0.0f,0.0f);
+            roundtime = 1.5f;
         }      
     }
 

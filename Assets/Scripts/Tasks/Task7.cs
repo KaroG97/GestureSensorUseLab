@@ -15,9 +15,6 @@ public class Task7 : MonoBehaviour
     private static Renderer cuttingPlaneYRenderer;
     private static Renderer cuttingPlaneZRenderer;
 
-    private static string direction; 
-
-
     private int round;
 
     private float time;
@@ -29,8 +26,7 @@ public class Task7 : MonoBehaviour
         cuttingPlaneYRenderer = cuttingPlaneY.GetComponent<Renderer>();
         cuttingPlaneZRenderer = cuttingPlaneZ.GetComponent<Renderer>();
         round = 1;
-        time = 10.0f;
-        direction = "up";
+        time = 1.5f;
     }
 
     // Update is called once per frame
@@ -39,61 +35,15 @@ public class Task7 : MonoBehaviour
         if(time > 0){
             time -= Time.deltaTime;
             
-            if(round == 1  && direction == "up"){
-                cuttingPlaneXRenderer.material.SetColor("_Color", Color.red);
-                if(cuttingPlaneX.transform.position.x < 0.0024){
-                    cuttingPlaneX.transform.Translate(0.001f,0,0);
-                }
-                else{
-                    direction = "down";
-                }               
+            if(round == 1){
+                cuttingPlaneXRenderer.material.SetColor("_Color", Color.red);       
             }
-            else if(round == 1  && direction == "down"){
-                cuttingPlaneXRenderer.material.SetColor("_Color", Color.red);
-                if(cuttingPlaneX.transform.position.x > -0.0033){
-                    cuttingPlaneX.transform.Translate(-0.001f,0,0);
-                }
-                else{
-                    direction = "up";
-                }               
+            else if(round == 2){            
+                cuttingPlaneYRenderer.material.SetColor("_Color", Color.red);              
             }
-            if(round == 2  && direction == "up"){            
-                cuttingPlaneYRenderer.material.SetColor("_Color", Color.red);
-                if(cuttingPlaneY.transform.position.y < 1.7){
-                    cuttingPlaneY.transform.Translate(0,0.001f,0);
-                }
-                else{
-                    direction = "down";
-                }               
-            }
-            else if(round == 2  && direction == "down"){
-                cuttingPlaneYRenderer.material.SetColor("_Color", Color.red);
-                if(cuttingPlaneY.transform.position.y > 1.49){
-                    cuttingPlaneY.transform.Translate(0,-0.001f,0);
-                }
-                else{
-                    direction = "up";
-                }               
-            }
-            if(round == 3  && direction == "up"){
-                cuttingPlaneZRenderer.material.SetColor("_Color", Color.red);
-                if(cuttingPlaneZ.transform.position.z < 0.297){
-                    cuttingPlaneZ.transform.Translate(0,0,0.001f);
-                }
-                else{
-                    direction = "down";
-                }               
-            }
-            else if(round == 3  && direction == "down"){
-                
-                cuttingPlaneZRenderer.material.SetColor("_Color", Color.red);
-                if(cuttingPlaneZ.transform.position.z > 0.2915){
-                    cuttingPlaneZ.transform.Translate(0,0,-0.001f);
-                }
-                else{
-                    direction = "up";
-                }               
-            }            
+            else if(round == 3){
+                cuttingPlaneZRenderer.material.SetColor("_Color", Color.red);             
+            }         
         }
         else{
             if(round < 3){
@@ -104,7 +54,7 @@ public class Task7 : MonoBehaviour
                 deselectAllPlanes();
                 round = 1;
             }
-            time = 10.0f;
+            time = 1.5f;
         }
     }
 
