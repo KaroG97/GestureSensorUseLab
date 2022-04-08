@@ -5,121 +5,79 @@ using UnityEngine;
 public class Task9 : MonoBehaviour
 {
 
-    // Define cutting planes
+    public GameObject dummy;
+    public static Vector3 originalPosition;
+    public static Vector3 targetPosition;
 
-    public GameObject cuttingPlaneX;
-    public GameObject cuttingPlaneY;
-    public GameObject cuttingPlaneZ;
+    public static Collider targetCollider;
 
-    private static Renderer cuttingPlaneXRenderer;
-    private static Renderer cuttingPlaneYRenderer;
-    private static Renderer cuttingPlaneZRenderer;
+    public static float stepcount;
 
-    private static string direction; 
+    public Vector3 difference;
+    public Vector3 steps; 
 
+    public static float time; 
 
-    private int round;
-
-    private float time;
-
-    // Start is called before the first frame update
     void Start()
     {
-        cuttingPlaneXRenderer = cuttingPlaneX.GetComponent<Renderer>();
-        cuttingPlaneYRenderer = cuttingPlaneY.GetComponent<Renderer>();
-        cuttingPlaneZRenderer = cuttingPlaneZ.GetComponent<Renderer>();
-        round = 1;
-        time = 10.0f;
-        direction = "up";
+        dummy.SetActive(true);
+        //Store original dummy position to move dummy to origin if time is up
+        originalPosition = dummy.transform.localPosition;
+        //Find the position of the target Cube
+        targetCollider = this.gameObject.GetComponent<Collider>();
+        targetPosition = this.gameObject.transform.localPosition;
+        //Calculate the initial distance between dummy and target
+        difference = calculateDifference();
+        //Define a stepsize using the distance divided by a stepcount
+        stepcount = 50.0f;
+        steps = difference/stepcount;
+        //Define target time
+        time = 5.0f; 
     }
 
-    // Update is called once per frame
     void Update()
     {
+        //Recalculate distance between dummy and target and the resulting steps
+        difference = calculateDifference();
+        steps = difference/stepcount;
+
+        //Restore original dummy position, if enter key is down
+        if(Input.GetKeyDown("return")){ 
+            dummy.transform.localPosition = originalPosition;
+            time = 5.0f;
+        }
+
+
         if(time > 0){
             time -= Time.deltaTime;
-            
-            if(round == 1  && direction == "up"){
-                cuttingPlaneXRenderer.material.SetColor("_Color", Color.red);
-                if(cuttingPlaneX.transform.position.x < 0.0024){
-                    cuttingPlaneX.transform.Translate(0.001f,0,0);
+            if(time < 4.0f){
+                if(targetCollider.bounds.Contains(dummy.transform.position)){
+                    this.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
                 }
                 else{
-                    direction = "down";
-                }               
+                    dummy.transform.localPosition = new Vector3(dummy.transform.localPosition[0]+steps[0], dummy.transform.localPosition[1]+steps[1], dummy.transform.localPosition[2]+steps[2]);
+                    this.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
+                }
             }
-            else if(round == 1  && direction == "down"){
-                cuttingPlaneXRenderer.material.SetColor("_Color", Color.red);
-                if(cuttingPlaneX.transform.position.x > -0.0033){
-                    cuttingPlaneX.transform.Translate(-0.001f,0,0);
-                }
-                else{
-                    direction = "up";
-                }               
-            }
-            if(round == 2  && direction == "up"){            
-                cuttingPlaneYRenderer.material.SetColor("_Color", Color.red);
-                if(cuttingPlaneY.transform.position.y < 1.7){
-                    cuttingPlaneY.transform.Translate(0,0.001f,0);
-                }
-                else{
-                    direction = "down";
-                }               
-            }
-            else if(round == 2  && direction == "down"){
-                cuttingPlaneYRenderer.material.SetColor("_Color", Color.red);
-                if(cuttingPlaneY.transform.position.y > 1.49){
-                    cuttingPlaneY.transform.Translate(0,-0.001f,0);
-                }
-                else{
-                    direction = "up";
-                }               
-            }
-            if(round == 3  && direction == "up"){
-                cuttingPlaneZRenderer.material.SetColor("_Color", Color.red);
-                if(cuttingPlaneZ.transform.position.z < 0.297){
-                    cuttingPlaneZ.transform.Translate(0,0,0.001f);
-                }
-                else{
-                    direction = "down";
-                }               
-            }
-            else if(round == 3  && direction == "down"){
-                
-                cuttingPlaneZRenderer.material.SetColor("_Color", Color.red);
-                if(cuttingPlaneZ.transform.position.z > 0.2915){
-                    cuttingPlaneZ.transform.Translate(0,0,-0.001f);
-                }
-                else{
-                    direction = "up";
-                }               
-            }            
         }
+        //Restore original dummy position, if time is up and restart timer
         else{
-            if(round < 3){
-                deselectAllPlanes();
-                round ++;
-            }
-            else{
-                deselectAllPlanes();
-                round = 1;
-            }
-            time = 10.0f;
+            dummy.transform.localPosition = originalPosition;
+            time = 5.0f;
         }
     }
 
-    public void onEnable(){
-        Start();
+    public void onEnable(){  
+       Start();
     }
 
-    public void deselectAllPlanes(){
-        print("Deselect all planes!");
-        cuttingPlaneX.gameObject.SetActive(true);
-        cuttingPlaneY.gameObject.SetActive(true);
-        cuttingPlaneZ.gameObject.SetActive(true);
-        cuttingPlaneXRenderer.material.SetColor("_Color", Color.white);
-        cuttingPlaneYRenderer.material.SetColor("_Color", Color.white);
-        cuttingPlaneZRenderer.material.SetColor("_Color", Color.white);
+    Vector3 calculateDifference(){
+        Vector3 diff = new Vector3();
+
+        diff[0] = targetPosition[0] - dummy.transform.localPosition[0];
+        diff[1] = targetPosition[1] - dummy.transform.localPosition[1];
+        diff[2] = targetPosition[2] - dummy.transform.localPosition[2];
+        return diff;
     }
 
 }

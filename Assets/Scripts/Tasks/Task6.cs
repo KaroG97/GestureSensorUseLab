@@ -1,54 +1,69 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Task6 : MonoBehaviour
 {
 
-    public Image dummy;
-
-    public static string direction;
-
-    public static Vector3 max;
-    public static Vector3 min;
-
-
+    public static string dimension;
+    public GameObject cube;
+    
+    public static float roundtime; 
+    public static int round;
 
     // Start is called before the first frame update
     void Start()
     {
-        direction = "bigger";
-
-        min = dummy.transform.localScale;
-        max = new Vector3(15.0f, 15.0f, 0.0f);
-
+        cube.SetActive(true);
+        round = 1;
+        roundtime = 5.0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        switch (direction){
-            case "bigger": 
-                if(dummy.transform.localScale.x < max.x){
-                    dummy.transform.localScale = dummy.transform.localScale + new Vector3(0.075f,0.075f, 0.0f);
-                }
-                else{
-                    direction = "smaller";
-                }
-                break;
-            case "smaller":
-                if(dummy.transform.localScale.x > min.x){
-                    dummy.transform.localScale = dummy.transform.localScale + new Vector3(-0.075f,-0.075f, 0.0f);
-                }
-                else{
-                    direction = "bigger";
-                }
-                break;
-            default: 
-                break;
+
+        if(Input.GetKeyDown("return")){
+            if(round == 6){
+                round = 1;
+            }
+            else{
+                round ++;
+            }            
         }
+
+        if(roundtime > 0){
+            roundtime = roundtime -= Time.deltaTime;
+            if(round == 1){
+                // + x
+                cube.transform.Rotate(0.5f,0,0);
+            }
+            else if(round == 2){
+                // - x
+                cube.transform.Rotate(-0.5f,0,0);
+            }
+            else if(round == 3){
+                // + y
+                cube.transform.Rotate(0,0.5f,0);
+            }
+            else if(round == 4){
+                // - y
+                cube.transform.Rotate(0,-0.5f,0);
+            }
+            else if(round == 5){
+                // + z
+                cube.transform.Rotate(0,0,0.5f);
+            }
+            else if(round == 6){
+                // - z
+                cube.transform.Rotate(0,0,-0.5f);
+            }
+        }  
+        else{
+            round++;
+            cube.transform.rotation = new Quaternion(0.0f,0.0f,0.0f,0.0f);
+            roundtime = 5.0f;
+        }      
     }
 
     public void onEnable(){
