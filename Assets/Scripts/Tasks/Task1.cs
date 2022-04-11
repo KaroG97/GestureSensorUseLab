@@ -42,6 +42,12 @@ public class Task1 : MonoBehaviour
             if(sensor.transform.GetChild(i).name != "M11"){
                 sensor.transform.GetChild(i).gameObject.SetActive(false);
             }
+            else if(sensor.transform.GetChild(i).name != "GhostHands"){
+                sensor.transform.GetChild(i).gameObject.SetActive(false);
+            }
+            else if(sensor.transform.GetChild(i).name != "Service Provider XR"){
+                sensor.transform.GetChild(i).gameObject.SetActive(false);
+            }
             else{
                 sensor.transform.GetChild(i).gameObject.SetActive(true);
                 sensor.transform.GetChild(i).GetComponent<Renderer>().enabled = true;

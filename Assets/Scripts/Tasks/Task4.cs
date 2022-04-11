@@ -125,7 +125,7 @@ public class Task4 : MonoBehaviour
                     }
                     else if(direction == "vertical" && directionDetail == "up"){
                         if(vertical.value < vertical.maxValue){
-                        vertical.value = vertical.value + 1; 
+                        vertical.value = vertical.value + 1 ; 
                         }
                         else{
                             directionDetail = "down";
@@ -133,7 +133,7 @@ public class Task4 : MonoBehaviour
                     }
                     else if(direction == "vertical" && directionDetail == "down"){
                         if(vertical.value > vertical.minValue){
-                        vertical.value = vertical.value - 1; 
+                        vertical.value = vertical.value - 1 ; 
                         }
                         else{
                             directionDetail = "up";
@@ -169,7 +169,7 @@ public class Task4 : MonoBehaviour
                 }
                 else if(direction == "vertical" && directionDetail == "up"){
                     if(vertical.value < vertical.maxValue){
-                    vertical.value = vertical.value + 0.02f; 
+                    vertical.value = vertical.value + 0.05f; 
                     }
                     else{
                         directionDetail = "down";
@@ -177,7 +177,7 @@ public class Task4 : MonoBehaviour
                 }
                 else if(direction == "vertical" && directionDetail == "down"){
                     if(vertical.value > vertical.minValue){
-                    vertical.value = vertical.value - 0.02f; 
+                    vertical.value = vertical.value - 0.05f; 
                     }
                     else{
                         directionDetail = "up";

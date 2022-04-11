@@ -35,6 +35,7 @@ public class Task5 : MonoBehaviour
                     dummy.transform.localScale = dummy.transform.localScale + new Vector3(0.075f,0.075f, 0.0f);
                 }
                 else{
+                    StartCoroutine(waiter());
                     direction = "smaller";
                 }
                 break;
@@ -43,12 +44,27 @@ public class Task5 : MonoBehaviour
                     dummy.transform.localScale = dummy.transform.localScale + new Vector3(-0.075f,-0.075f, 0.0f);
                 }
                 else{
+                    StartCoroutine(waiter());                    
                     direction = "bigger";
                 }
                 break;
             default: 
                 break;
         }
+    }
+
+    public void wait(){
+        print("Wait");
+        float counter = 0;
+        float waitTime = 1.0f;
+        while(counter < waitTime){
+            counter += Time.deltaTime;
+        }
+    }
+
+    IEnumerator waiter(){
+        yield return new WaitForSeconds(2f);
+        print("jo");
     }
 
     public void onEnable(){
