@@ -13,12 +13,15 @@ public class LeapPosToCSV : MonoBehaviour
 
     public static GameObject monitor;
 
+    public bool valid; 
+
     public ElicitationDisplay elicitationDisplay;
 
     [System.Serializable]
 
     public class LeapHandPosition
     {
+        public bool valid;
         public string point1;
         public Vector3 origin1;
         public float absoluteX1;
@@ -41,11 +44,12 @@ public class LeapPosToCSV : MonoBehaviour
         public float absoluteZ4;
         public string timestamp;
 
-        public LeapHandPosition(Vector3 org1, Vector3 org2, Vector3 org3, Vector3 org4,
+        public LeapHandPosition(bool val, Vector3 org1, Vector3 org2, Vector3 org3, Vector3 org4,
                                 string name1, float tempX1, float tempY1, float tempZ1,
                                 string name2, float tempX2, float tempY2, float tempZ2,
                                 string name3, float tempX3, float tempY3, float tempZ3,
                                 string name4, float tempX4, float tempY4, float tempZ4, string tmp){
+            valid = val;
             point1 = name1; 
             origin1 = org1;
             absoluteX1 = tempX1;
@@ -110,7 +114,7 @@ public class LeapPosToCSV : MonoBehaviour
         pinkyTransform = pinky.GetComponent<Transform>();
 
         filename = Application.dataPath + "/CSV/" + filename + ".csv";
-
+        valid = false;
         InvokeRepeating("collectPosition", 0.0f, 0.1f);
     }
 
@@ -118,9 +122,19 @@ public class LeapPosToCSV : MonoBehaviour
     void Update()
     {
         activeTask = elicitationDisplay.getActiveTask();
+
+        if(Input.GetKeyDown("g")){
+            valid = true;
+            print("Valid rec");
+        }
+        else if(Input.GetKeyDown("i")){
+            valid = false;
+            print("End valid rec");
+        }
     }
 
     public void collectPosition(){
+
 
         float tempWristX = wristTransform.position.x; 
         float tempWristY = wristTransform.position.y;
@@ -161,7 +175,7 @@ public class LeapPosToCSV : MonoBehaviour
         }
                 
 
-        LeapHandPosition newPosition = new LeapHandPosition (origin1, origin2, origin3, origin4,
+        LeapHandPosition newPosition = new LeapHandPosition (valid, origin1, origin2, origin3, origin4,
                                                              wrist.ToString(), tempWristX, tempWristY, tempWristZ, 
                                                              index.ToString(), tempIndexX, tempIndexY, tempIndexZ,
                                                              thumb.ToString(), tempThumbX, tempThumbY, tempThumbZ,
@@ -272,6 +286,7 @@ public class LeapPosToCSV : MonoBehaviour
                 tw.WriteLine(
                              currentList.positions[i].timestamp + ";" +
                              activeTask + ";" +
+                             currentList.positions[i].valid + ";"+
                              currentList.positions[i].point1 + ";" +
                              currentList.positions[i].absoluteX1 + ";"+
                              currentList.positions[i].absoluteY1 + ";"+
@@ -332,7 +347,7 @@ public class LeapPosToCSV : MonoBehaviour
     public string concatHeader(int numPoints){
         string header = "";
 
-        header += "Timestamp; ActiveTaskNumber";
+        header += "Timestamp; ActiveTaskNumber; Valid Rep";
 
         for(int i = 1; i <= numPoints; i++){
             header += ";Point" + i + ";"+ "X-Absolute ; Y-Absolute ; Z-Absolute;X-Relative ; Y-Relative ; Z-Relative";

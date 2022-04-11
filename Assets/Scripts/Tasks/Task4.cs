@@ -27,10 +27,19 @@ public class Task4 : MonoBehaviour
 
     void Start()
     {
-        horizontalParent.SetActive(true);
+        /*horizontalParent.SetActive(true);
         verticalParent.SetActive(false);
         direction = "horizontal";
         directionDetail = "right";
+        wholeNumbers = false;   
+        timeBetweenSteps = 1.5f;
+        activationTime = 3.0f;  
+        activeColor = new Color(0f/255f, 208f/255f, 255f/255f);
+        inactiveColor = horizontal.gameObject.transform.Find("Handle Slide Area").Find("Handle").GetComponent<Image>().color; */
+        horizontalParent.SetActive(false);
+        verticalParent.SetActive(true);
+        direction = "vertical";
+        directionDetail = "down";
         wholeNumbers = false;   
         timeBetweenSteps = 1.5f;
         activationTime = 3.0f;  
@@ -136,7 +145,6 @@ public class Task4 : MonoBehaviour
 
         }   
         else if(wholeNumbers == false){
-        print(activationTime);
             if(activationTime > 0){
                 activationTime =- Time.deltaTime;
             }
