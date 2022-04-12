@@ -36,13 +36,13 @@ public class Task7 : MonoBehaviour
             time -= Time.deltaTime;
             
             if(round == 1){
-                cuttingPlaneXRenderer.material.SetColor("_Color", Color.red);       
+                cuttingPlaneZRenderer.material.SetColor("_Color", Color.red);       
             }
             else if(round == 2){            
                 cuttingPlaneYRenderer.material.SetColor("_Color", Color.red);              
             }
             else if(round == 3){
-                cuttingPlaneZRenderer.material.SetColor("_Color", Color.red);             
+                cuttingPlaneXRenderer.material.SetColor("_Color", Color.red);             
             }         
         }
         else{
@@ -63,7 +63,6 @@ public class Task7 : MonoBehaviour
     }
 
     public void deselectAllPlanes(){
-        print("Deselect all planes!");
         cuttingPlaneX.gameObject.SetActive(true);
         cuttingPlaneY.gameObject.SetActive(true);
         cuttingPlaneZ.gameObject.SetActive(true);

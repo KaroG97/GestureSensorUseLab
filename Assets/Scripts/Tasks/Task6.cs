@@ -23,20 +23,19 @@ public class Task6 : MonoBehaviour
     void Update()
     {
 
-        if(Input.GetKeyDown("return")){
+        /*if(Input.GetKeyDown("return")){
             if(round == 2){
                 round = 1;
             }
             else{
                 round ++;
             }            
-        }
+        }*/
 
         if(roundtime > 0){
             roundtime = roundtime -= Time.deltaTime;
         }
         else{
-            print("kipp");
             if(round == 1){
                 // + x
                 cube.transform.Rotate(45.0f,0,0);
@@ -70,7 +69,12 @@ public class Task6 : MonoBehaviour
                 // - z
                 cube.transform.Rotate(0,0,-0.5f);
             }*/
-            round++;
+            if(round == 2){
+                round = 1;
+            }
+            else{
+                round ++;
+            }
             //cube.transform.rotation = new Quaternion(0.0f,0.0f,0.0f,0.0f);
             roundtime = 1.5f;
         }      

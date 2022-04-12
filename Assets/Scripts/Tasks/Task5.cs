@@ -13,6 +13,7 @@ public class Task5 : MonoBehaviour
     public static Vector3 max;
     public static Vector3 min;
 
+    public float resizeTime;
 
 
     // Start is called before the first frame update
@@ -23,48 +24,35 @@ public class Task5 : MonoBehaviour
         min = dummy.transform.localScale;
         max = new Vector3(15.0f, 15.0f, 0.0f);
 
+        resizeTime = 3.0f;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        switch (direction){
-            case "bigger": 
+        if(resizeTime > 0){
+            resizeTime -= Time.deltaTime;
+            if(direction == "bigger"){
                 if(dummy.transform.localScale.x < max.x){
                     dummy.transform.localScale = dummy.transform.localScale + new Vector3(0.075f,0.075f, 0.0f);
                 }
-                else{
-                    StartCoroutine(waiter());
-                    direction = "smaller";
-                }
-                break;
-            case "smaller":
+            }
+            else if(direction == "smaller"){
                 if(dummy.transform.localScale.x > min.x){
                     dummy.transform.localScale = dummy.transform.localScale + new Vector3(-0.075f,-0.075f, 0.0f);
-                }
-                else{
-                    StartCoroutine(waiter());                    
-                    direction = "bigger";
-                }
-                break;
-            default: 
-                break;
+                }               
+            }
         }
-    }
-
-    public void wait(){
-        print("Wait");
-        float counter = 0;
-        float waitTime = 1.0f;
-        while(counter < waitTime){
-            counter += Time.deltaTime;
+        else{
+            resizeTime = 3.0f;
+            if(direction == "bigger"){
+                direction = "smaller";
+            }
+            else if(direction == "smaller"){
+                direction = "bigger";
+            }
         }
-    }
-
-    IEnumerator waiter(){
-        yield return new WaitForSeconds(2f);
-        print("jo");
     }
 
     public void onEnable(){
