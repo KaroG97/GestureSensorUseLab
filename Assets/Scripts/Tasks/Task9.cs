@@ -5,6 +5,8 @@ using UnityEngine;
 public class Task9 : MonoBehaviour
 {
 
+    public GameObject target;
+
     public GameObject dummy;
     public static Vector3 originalPosition;
     public static Vector3 targetPosition;
@@ -24,8 +26,8 @@ public class Task9 : MonoBehaviour
         //Store original dummy position to move dummy to origin if time is up
         originalPosition = dummy.transform.localPosition;
         //Find the position of the target Cube
-        targetCollider = this.gameObject.GetComponent<Collider>();
-        targetPosition = this.gameObject.transform.localPosition;
+        targetCollider = target.gameObject.GetComponent<Collider>();
+        targetPosition = target.gameObject.transform.localPosition;
         //Calculate the initial distance between dummy and target
         difference = calculateDifference();
         //Define a stepsize using the distance divided by a stepcount
@@ -52,11 +54,11 @@ public class Task9 : MonoBehaviour
             time -= Time.deltaTime;
             if(time < 4.0f){
                 if(targetCollider.bounds.Contains(dummy.transform.position)){
-                    this.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
+                    target.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
                 }
                 else{
                     dummy.transform.localPosition = new Vector3(dummy.transform.localPosition[0]+steps[0], dummy.transform.localPosition[1]+steps[1], dummy.transform.localPosition[2]+steps[2]);
-                    this.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
+                    target.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
                 }
             }
         }
