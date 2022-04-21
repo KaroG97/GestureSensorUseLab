@@ -44,7 +44,8 @@ public class Task9 : MonoBehaviour
         steps = difference/stepcount;
 
         //Restore original dummy position, if enter key is down
-        if(Input.GetKeyDown("return")){ 
+        if(Input.GetKeyDown("n")){ 
+            target.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
             dummy.transform.localPosition = originalPosition;
             time = 5.0f;
         }
@@ -65,6 +66,7 @@ public class Task9 : MonoBehaviour
         //Restore original dummy position, if time is up and restart timer
         else{
             dummy.transform.localPosition = originalPosition;
+            target.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
             time = 5.0f;
         }
     }

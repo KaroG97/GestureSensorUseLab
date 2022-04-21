@@ -21,6 +21,7 @@ public class LeapPosToCSV : MonoBehaviour
 
     public class LeapHandPosition
     {
+        public string task;
         public bool valid;
         public string point1;
         public Vector3 origin1;
@@ -44,11 +45,12 @@ public class LeapPosToCSV : MonoBehaviour
         public float absoluteZ4;
         public string timestamp;
 
-        public LeapHandPosition(bool val, Vector3 org1, Vector3 org2, Vector3 org3, Vector3 org4,
+        public LeapHandPosition(string tsk, bool val, Vector3 org1, Vector3 org2, Vector3 org3, Vector3 org4,
                                 string name1, float tempX1, float tempY1, float tempZ1,
                                 string name2, float tempX2, float tempY2, float tempZ2,
                                 string name3, float tempX3, float tempY3, float tempZ3,
                                 string name4, float tempX4, float tempY4, float tempZ4, string tmp){
+            task = tsk;
             valid = val;
             point1 = name1; 
             origin1 = org1;
@@ -175,7 +177,7 @@ public class LeapPosToCSV : MonoBehaviour
         }
                 
 
-        LeapHandPosition newPosition = new LeapHandPosition (valid, origin1, origin2, origin3, origin4,
+        LeapHandPosition newPosition = new LeapHandPosition (activeTask, valid, origin1, origin2, origin3, origin4,
                                                              wrist.ToString(), tempWristX, tempWristY, tempWristZ, 
                                                              index.ToString(), tempIndexX, tempIndexY, tempIndexZ,
                                                              thumb.ToString(), tempThumbX, tempThumbY, tempThumbZ,
@@ -285,7 +287,7 @@ public class LeapPosToCSV : MonoBehaviour
 
                 tw.WriteLine(
                              currentList.positions[i].timestamp + ";" +
-                             activeTask + ";" +
+                             currentList.positions[i].task + ";" +
                              currentList.positions[i].valid + ";"+
                              currentList.positions[i].point1 + ";" +
                              currentList.positions[i].absoluteX1 + ";"+
