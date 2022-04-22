@@ -19,6 +19,8 @@ public class OutlineHandler : MonoBehaviour
 
     public ElicitationDisplay elicitationDisplay;
 
+    public GameObject handMeshRight;
+
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +30,7 @@ public class OutlineHandler : MonoBehaviour
         wrist = transform.parent.gameObject.GetComponent<LeapPosToCSV>().wrist;
         index = transform.parent.gameObject.GetComponent<LeapPosToCSV>().index;
         thumb = transform.parent.gameObject.GetComponent<LeapPosToCSV>().thumb;
-        pinky = transform.parent.gameObject.GetComponent<LeapPosToCSV>().pinky;         
+        pinky = transform.parent.gameObject.GetComponent<LeapPosToCSV>().pinky;           
     }
 
 
@@ -61,6 +63,7 @@ public class OutlineHandler : MonoBehaviour
                 area.GetComponent<Renderer>().enabled = true;
             }
             else{
+                changeHandMaterial(true);
                 area.GetComponent<Renderer>().enabled = true;
                 if(leave != null){
                     leave.Play();
@@ -73,6 +76,7 @@ public class OutlineHandler : MonoBehaviour
                 area.GetComponent<Renderer>().enabled = true;
             }
             else{
+                changeHandMaterial(true);
                 area.GetComponent<Renderer>().enabled = true;
                 if(leave != null){
                     leave.Play();
@@ -85,6 +89,7 @@ public class OutlineHandler : MonoBehaviour
                 area.GetComponent<Renderer>().enabled = true;
             }
             else{
+                changeHandMaterial(true);
                 area.GetComponent<Renderer>().enabled = true;
                 if(leave != null){
                     leave.Play();
@@ -97,6 +102,7 @@ public class OutlineHandler : MonoBehaviour
                 area.GetComponent<Renderer>().enabled = true;
             }
             else{
+                changeHandMaterial(true);
                 area.GetComponent<Renderer>().enabled = true;
                 if(leave != null){
                     leave.Play();
@@ -109,7 +115,19 @@ public class OutlineHandler : MonoBehaviour
                 if(greatOutline == false){
                     area.GetComponent<Renderer>().enabled = false;
                 }
+                else{
+                    changeHandMaterial(false);
+                }
             }     
+        }
+    }
+
+    public void changeHandMaterial(bool inside){
+        if(inside){
+            handMeshRight.GetComponent<SkinnedMeshRenderer>().materials[0].SetColor("_MainColor", Color.white);
+        }
+        else{           
+            handMeshRight.GetComponent<SkinnedMeshRenderer>().materials[0].SetColor("_MainColor", Color.red);
         }
     }
 
