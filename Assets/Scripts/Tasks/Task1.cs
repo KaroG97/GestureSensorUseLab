@@ -28,7 +28,7 @@ public class Task1 : MonoBehaviour
     string[] first = {"M10", "M12", "M18", "M4", "U11", "O11"}; 
     string[] second = {"M3", "M5", "M17", "M19", "M9", "M13", "O10", "O12", "U10", "U12"};
     string[] third = {"M1", "M2", "M6", "M7", "M8", "M14", "M15", "M16", "M20", "M21", "O3", "O4", "O5", "O9", "O13", "O17", "O17", "O18", "O19", "U3", "U4", "U5", "U9", "U13", "U17", "U17", "U18", "U19"};
-    string[] forth ={"O1", "O2", "O6", "O7", "O8", "O14", "O15", "O16", "O20", "O21", "U1", "U2", "U6", "U7", "U8", "U14", "U15", "U16", "U20", "U21", "outline" };
+    string[] forth ={"Outline", "O1", "O2", "O6", "O7", "O8", "O14", "O15", "O16", "O20", "O21", "U1", "U2", "U6", "U7", "U8", "U14", "U15", "U16", "U20", "U21", "outline" };
 
     
     // Start is called before the first frame update
@@ -39,18 +39,18 @@ public class Task1 : MonoBehaviour
         round = 1; 
         loadingDiff = 0.5f;
         for(int i = 0; i < sensor.transform.childCount; i++){
-            if(sensor.transform.GetChild(i).name != "M11"){
-                sensor.transform.GetChild(i).gameObject.SetActive(false);
+            if(sensor.transform.GetChild(i).name == "M11"){
+                sensor.transform.GetChild(i).gameObject.SetActive(true);
             }
-            else if(sensor.transform.GetChild(i).name != "GhostHands"){
-                sensor.transform.GetChild(i).gameObject.SetActive(false);
+            else if(sensor.transform.GetChild(i).name == "GhostHands"){
+                sensor.transform.GetChild(i).gameObject.SetActive(true);
             }
-            else if(sensor.transform.GetChild(i).name != "Service Provider XR"){
-                sensor.transform.GetChild(i).gameObject.SetActive(false);
+            else if(sensor.transform.GetChild(i).name == "Service Provider (XR)"){
+                sensor.transform.GetChild(i).gameObject.SetActive(true);
             }
             else{
-                sensor.transform.GetChild(i).gameObject.SetActive(true);
-                sensor.transform.GetChild(i).GetComponent<Renderer>().enabled = true;
+                sensor.transform.GetChild(i).gameObject.SetActive(false);
+                sensor.transform.GetChild(i).GetComponent<Renderer>().enabled = false;
             }
         }
     }
@@ -77,7 +77,7 @@ public class Task1 : MonoBehaviour
                     loadingDiff -= Time.deltaTime;
                 }
                 else{
-                    for(int i = 0; i < sensor.transform.childCount; i++){       
+                    for(int i = 0; i < sensor.transform.childCount-2; i++){       
                         for(int j = 0; j < first.Length; j++){
                             if(sensor.transform.GetChild(i).name == first[j]){
                                 sensor.transform.GetChild(i).gameObject.SetActive(true);
@@ -94,7 +94,7 @@ public class Task1 : MonoBehaviour
                     loadingDiff -= Time.deltaTime;
                 }
                 else{
-                    for(int i = 0; i < sensor.transform.childCount; i++){       
+                    for(int i = 0; i < sensor.transform.childCount-2; i++){       
                         for(int j = 0; j < second.Length; j++){
                             if(sensor.transform.GetChild(i).name == second[j]){
                                 sensor.transform.GetChild(i).gameObject.SetActive(true);
@@ -111,7 +111,7 @@ public class Task1 : MonoBehaviour
                     loadingDiff -= Time.deltaTime;
                 }
                 else{
-                    for(int i = 0; i < sensor.transform.childCount; i++){       
+                    for(int i = 0; i < sensor.transform.childCount-2; i++){       
                         for(int j = 0; j < third.Length; j++){
                             if(sensor.transform.GetChild(i).name == third[j]){
                                 sensor.transform.GetChild(i).gameObject.SetActive(true);
@@ -128,7 +128,7 @@ public class Task1 : MonoBehaviour
                     loadingDiff -= Time.deltaTime;
                 }
                 else{
-                    for(int i = 0; i < sensor.transform.childCount; i++){       
+                    for(int i = 0; i < sensor.transform.childCount-2; i++){       
                         for(int j = 0; j < forth.Length; j++){
                             if(sensor.transform.GetChild(i).name == forth[j]){
                                 sensor.transform.GetChild(i).gameObject.SetActive(true);
@@ -140,14 +140,6 @@ public class Task1 : MonoBehaviour
                     loadingDiff = 0.5f;
                 }
             }
-            /*if(round == 6){
-                if(loadingDiff > 0){
-                    loadingDiff -= Time.deltaTime;
-                }
-                else{
-                    Start();
-                }
-            }*/
         }       
     }    
     
