@@ -21,7 +21,7 @@ public class Task2 : MonoBehaviour
     void Start()
     {
        activeButtonIndex = 0;
-       timeBetweenButtonPress = 1.5f;  
+       timeBetweenButtonPress = 3.0f;  
        numberToScreen();
     }
 
@@ -48,7 +48,7 @@ public class Task2 : MonoBehaviour
             else{
                 activeButtonIndex++;
             }
-            timeBetweenButtonPress = 1.5f;
+            timeBetweenButtonPress = 3.0f;
         }        
     }
 

@@ -16,7 +16,7 @@ public class Task6 : MonoBehaviour
     {
         cube.SetActive(true);
         round = 1;
-        roundtime = 1.5f;
+        roundtime = 3.0f;
     }
 
     // Update is called once per frame
@@ -76,7 +76,7 @@ public class Task6 : MonoBehaviour
                 round ++;
             }
             //cube.transform.rotation = new Quaternion(0.0f,0.0f,0.0f,0.0f);
-            roundtime = 1.5f;
+            roundtime = 3.0f;
         }      
     }
 

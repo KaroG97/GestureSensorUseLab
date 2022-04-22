@@ -87,8 +87,7 @@ public class Task8 : MonoBehaviour
             else if(round == 3  && direction == "down"){
                 
                 cuttingPlaneZRenderer.material.SetColor("_Color", Color.red);
-                if(cuttingPlaneZ.transform.position.z > -90.1){                    
-                    print(cuttingPlaneZ.transform.position.z);
+                if(cuttingPlaneZ.transform.position.z > -89.688){                    
                     cuttingPlaneZ.transform.Translate(0,0,-0.002f);
                 }
                 else{

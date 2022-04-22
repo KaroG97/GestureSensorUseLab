@@ -24,7 +24,7 @@ public class Task5 : MonoBehaviour
         min = dummy.transform.localScale;
         max = new Vector3(15.0f, 15.0f, 0.0f);
 
-        resizeTime = 3.0f;
+        resizeTime = 5.0f;
 
     }
 
@@ -45,7 +45,7 @@ public class Task5 : MonoBehaviour
             }
         }
         else{
-            resizeTime = 3.0f;
+            resizeTime = 5.0f;
             if(direction == "bigger"){
                 direction = "smaller";
             }

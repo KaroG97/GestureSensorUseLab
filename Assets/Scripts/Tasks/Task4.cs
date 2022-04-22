@@ -153,7 +153,7 @@ public class Task4 : MonoBehaviour
                 vertical.gameObject.transform.Find("Handle Slide Area").Find("Handle").GetComponent<Image>().color = activeColor; 
                 if(direction == "horizontal" && directionDetail == "right"){
                     if(horizontal.value < horizontal.maxValue){
-                    horizontal.value = horizontal.value + 0.02f; 
+                    horizontal.value = horizontal.value + 0.01f; 
                     }
                     else{
                         directionDetail = "left";
@@ -161,7 +161,7 @@ public class Task4 : MonoBehaviour
                 }
                 else if(direction == "horizontal" && directionDetail == "left"){
                     if(horizontal.value > horizontal.minValue){
-                    horizontal.value = horizontal.value - 0.02f; 
+                    horizontal.value = horizontal.value - 0.01f; 
                     }
                     else{
                         directionDetail = "right";
@@ -169,7 +169,7 @@ public class Task4 : MonoBehaviour
                 }
                 else if(direction == "vertical" && directionDetail == "up"){
                     if(vertical.value < vertical.maxValue){
-                    vertical.value = vertical.value + 0.05f; 
+                    vertical.value = vertical.value + 0.01f; 
                     }
                     else{
                         directionDetail = "down";
@@ -177,7 +177,7 @@ public class Task4 : MonoBehaviour
                 }
                 else if(direction == "vertical" && directionDetail == "down"){
                     if(vertical.value > vertical.minValue){
-                    vertical.value = vertical.value - 0.05f; 
+                    vertical.value = vertical.value - 0.01f; 
                     }
                     else{
                         directionDetail = "up";

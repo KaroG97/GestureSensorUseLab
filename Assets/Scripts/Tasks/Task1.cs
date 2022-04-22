@@ -37,7 +37,7 @@ public class Task1 : MonoBehaviour
         initialisation = true;
         remainingInitTime = 2;
         round = 1; 
-        loadingDiff = 0.5f;
+        loadingDiff = 1.0f;
         for(int i = 0; i < sensor.transform.childCount; i++){
             if(sensor.transform.GetChild(i).name == "M11"){
                 sensor.transform.GetChild(i).gameObject.SetActive(true);

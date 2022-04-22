@@ -26,7 +26,7 @@ public class Task7 : MonoBehaviour
         cuttingPlaneYRenderer = cuttingPlaneY.GetComponent<Renderer>();
         cuttingPlaneZRenderer = cuttingPlaneZ.GetComponent<Renderer>();
         round = 1;
-        time = 1.5f;
+        time = 3.0f;
     }
 
     // Update is called once per frame
@@ -54,7 +54,7 @@ public class Task7 : MonoBehaviour
                 deselectAllPlanes();
                 round = 1;
             }
-            time = 1.5f;
+            time = 3.0f;
         }
     }
 
