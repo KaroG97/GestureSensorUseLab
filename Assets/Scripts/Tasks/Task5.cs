@@ -45,13 +45,14 @@ public class Task5 : MonoBehaviour
             }
         }
         else{
-            resizeTime = 5.0f;
+            print("biggest");
             if(direction == "bigger"){
                 direction = "smaller";
             }
             else if(direction == "smaller"){
                 direction = "bigger";
             }
+            resizeTime = 5.0f;
         }
     }
 

@@ -25,6 +25,7 @@ public class Task7 : MonoBehaviour
         cuttingPlaneXRenderer = cuttingPlaneX.GetComponent<Renderer>();
         cuttingPlaneYRenderer = cuttingPlaneY.GetComponent<Renderer>();
         cuttingPlaneZRenderer = cuttingPlaneZ.GetComponent<Renderer>();
+        deselectAllPlanes();
         round = 1;
         time = 3.0f;
     }

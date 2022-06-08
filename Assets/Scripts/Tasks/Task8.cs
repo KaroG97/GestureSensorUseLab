@@ -17,8 +17,13 @@ public class Task8 : MonoBehaviour
 
     private static string direction; 
 
+    private static Vector3 origPosX;
+    private static Vector3 origPosY;
+    private static Vector3 origPosZ;
 
     private int round;
+    private int ch; 
+    private bool run;
 
     private float time;
 
@@ -31,13 +36,32 @@ public class Task8 : MonoBehaviour
         round = 1;
         time = 10.0f;
         direction = "up";
+        ch = 0;
     }
-
     // Update is called once per frame
     void Update()
     {
+
+        if(Input.GetKeyDown("return")){
+            if(round < 3){
+                deselectAllPlanes();
+                round ++;
+            }
+            else{
+                deselectAllPlanes();
+                round = 1;
+            }
+        }
         if(time > 0){
             time -= Time.deltaTime;
+
+            if(ch == 0){
+                origPosX = cuttingPlaneX.transform.position;
+                origPosY = cuttingPlaneY.transform.position;
+                origPosZ = cuttingPlaneZ.transform.position;
+                deselectAllPlanes(); 
+                ch++;
+            }
             
             if(round == 1  && direction == "up"){
                 cuttingPlaneXRenderer.material.SetColor("_Color", Color.red);
@@ -96,14 +120,14 @@ public class Task8 : MonoBehaviour
             }            
         }
         else{
-            if(round < 3){
+            /*if(round < 3){
                 deselectAllPlanes();
                 round ++;
             }
             else{
                 deselectAllPlanes();
                 round = 1;
-            }
+            }*/
             time = 10.0f;
         }
     }
@@ -114,9 +138,13 @@ public class Task8 : MonoBehaviour
 
     public void deselectAllPlanes(){
         print("Deselect all planes!");
+        
         cuttingPlaneX.gameObject.SetActive(true);
         cuttingPlaneY.gameObject.SetActive(true);
         cuttingPlaneZ.gameObject.SetActive(true);
+        cuttingPlaneX.transform.position = origPosX;
+        cuttingPlaneY.transform.position = origPosY;
+        cuttingPlaneZ.transform.position = origPosZ;
         cuttingPlaneXRenderer.material.SetColor("_Color", Color.white);
         cuttingPlaneYRenderer.material.SetColor("_Color", Color.white);
         cuttingPlaneZRenderer.material.SetColor("_Color", Color.white);
